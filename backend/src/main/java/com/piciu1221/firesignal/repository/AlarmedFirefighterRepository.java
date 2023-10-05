@@ -1,5 +1,6 @@
 package com.piciu1221.firesignal.repository;
 
+import com.piciu1221.firesignal.dto.ConsolidatedAlarmInfoDTO;
 import com.piciu1221.firesignal.model.AlarmedFirefighter;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

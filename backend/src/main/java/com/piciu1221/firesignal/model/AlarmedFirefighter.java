@@ -26,6 +26,5 @@ public class AlarmedFirefighter implements Serializable {
     private Firefighter firefighter;
 
     @Column(name = "accepted")
-    @Setter(AccessLevel.PUBLIC)
     private Boolean accepted;
 }

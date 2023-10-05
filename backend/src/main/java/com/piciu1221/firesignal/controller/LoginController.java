@@ -21,10 +21,6 @@ public class LoginController {
 
     @PostMapping("/api/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
-        // Delegate login logic to the UserService
-        // Handle login request and return appropriate response
-        // You may choose to return a JWT token, a session cookie, or any other response based on your application's requirements.
-        // For simplicity, we'll just return a simple success message for now.
         LoginResponse loginResponse = userService.loginUser(loginRequest.getUsername(), loginRequest.getPassword());
         if (loginResponse.isSuccess()) {
             return ResponseEntity.ok("Login successful!");

@@ -142,11 +142,11 @@ public class AlarmsPanel extends JPanel {
         // Define the data variables
         String formattedDatetime = alarm.getDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String cityAndStreet = alarm.getCity() + ", " + alarm.getStreet();
-        int acceptedFirefightersCount = AlarmDisplayApiService.getAcceptedFirefightersCount(alarm.getAlarmId());
-        int alarmedFirefightersCount = AlarmDisplayApiService.getAlarmedFirefightersCount(alarm.getAlarmId());
-        boolean hasAcceptedCommander = AlarmDisplayApiService.hasAcceptedCommander(alarm.getAlarmId());
-        int acceptedDriversCount = AlarmDisplayApiService.getAcceptedDriversCount(alarm.getAlarmId());
-        boolean hasAcceptedTechnicalRescue = AlarmDisplayApiService.hasAcceptedTechnicalRescue(alarm.getAlarmId());
+        int alarmedFirefightersCount = alarm.getCount();
+        int acceptedFirefightersCount = alarm.getAcceptedFirefightersCount();
+        boolean hasAcceptedCommander = alarm.isHasAcceptedCommander();
+        int acceptedDriversCount = alarm.getAcceptedDriversCount();
+        boolean hasAcceptedTechnicalRescue = alarm.isHasAcceptedTechnicalRescue();
 
         // Create a custom panel for the button's content
         JPanel contentPanel = new JPanel(new MigLayout("insets 0 10 10 10, fill", "[]-100[][]"));
@@ -207,7 +207,7 @@ public class AlarmsPanel extends JPanel {
 
         // Create the text label for driver count and customize its appearance
         String driverLabelText = "<html><font color='white'>Drivers: </font>";
-        if (acceptedFirefightersCount > 0) {
+        if (acceptedDriversCount > 0) {
             driverLabelText += "<font color='green'>" + acceptedDriversCount + "</font></html>";
         } else {
             driverLabelText += "<font color='red'>" + acceptedDriversCount + "</font></html>";
@@ -216,6 +216,7 @@ public class AlarmsPanel extends JPanel {
         JLabel driverLabel = new JLabel(driverLabelText);
         driverLabel.setForeground(Color.WHITE);
         driverLabel.setFont(biggerFont);
+
         contentPanel.add(driverLabel, "alignx center"); // Align the driver label to the center and wrap to the next line
 
         // Create the text label for technical rescue and customize its appearance

@@ -8,6 +8,10 @@ import com.piciu1221.firesignal.repository.FirefighterRepository;
 import com.piciu1221.firesignal.service.AlarmService;
 import com.piciu1221.firesignal.service.SSEService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,11 +32,11 @@ public class AlarmController {
     @Autowired
     private SSEService sseService;
 
-    private final AlarmService alarmDisplayService;
+    private final AlarmService alarmService;
 
     @Autowired
-    public AlarmController(AlarmService alarmDisplayService) {
-        this.alarmDisplayService = alarmDisplayService;
+    public AlarmController(AlarmService alarmService) {
+        this.alarmService = alarmService;
     }
 
 
@@ -83,6 +87,16 @@ public class AlarmController {
 
     @PostMapping("/get-alarms-for-firefighter")
     public List<Alarm> getAlarmsForFirefighter(@RequestBody AlarmDisplayRequestDTO alarmDisplayRequestDTO) {
-        return alarmDisplayService.getAlarmsForFirefighter(alarmDisplayRequestDTO.getUsername(), alarmDisplayRequestDTO.getSkip(), alarmDisplayRequestDTO.getHowMuch());
+        return alarmService.getAlarmsForFirefighter(alarmDisplayRequestDTO.getUsername(), alarmDisplayRequestDTO.getSkip(), alarmDisplayRequestDTO.getHowMuch());
+    }
+
+    @GetMapping("/get-alarms-pages")
+    public ResponseEntity<List<AlarmWithFireDepartments>> getFireDepartments(@RequestParam(defaultValue = "0") int page) {
+        int pageSize = 8; // Number of alarms per page
+
+        // Fetch the latest alarms with fire departments using pagination
+        List<AlarmWithFireDepartments> alarmsWithDepartmentsPage = alarmService.getLatestAlarmsWithDepartments(page, pageSize);
+
+        return ResponseEntity.ok(alarmsWithDepartmentsPage);
     }
 }

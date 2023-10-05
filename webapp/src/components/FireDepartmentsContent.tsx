@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 interface FireDepartment {
-  id: number;
+  departmentId: number;
   departmentName: string;
   departmentCity: string;
   departmentStreet: string;
@@ -14,18 +15,20 @@ const FireDepartmentsContent: React.FC = () => {
   const [selectedDepartment, setSelectedDepartment] =
     useState<FireDepartment | null>(null);
 
-  const pageSize = 10; // Number of fire departments per page
-  const totalFireDepartments = fireDepartments.length;
-  const totalPages = Math.ceil(totalFireDepartments / pageSize);
+  const [nextPageCount, setNextPageCount] = useState<number>(0); // Store the number of alarms on the next page
+  const token = Cookies.get("token"); // Get the token from cookies
 
   useEffect(() => {
-    const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-
     // Fetch fire departments from your backend API
     const fetchFireDepartments = async () => {
       try {
         const response = await axios.get<FireDepartment[]>(
-          `${apiBaseUrl}/api/fire-departments?page=${page}`
+          `/api/fire-departments?page=${page}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`, // Include the token in the header
+            },
+          }
         );
         setFireDepartments(response.data);
       } catch (error) {
@@ -34,6 +37,25 @@ const FireDepartmentsContent: React.FC = () => {
     };
 
     fetchFireDepartments();
+
+    // Fetch the number of alarms on the next page
+    const fetchNextPageCount = async () => {
+      try {
+        const response = await axios.get<FireDepartment[]>(
+          `/api/fire-departments?page=${page + 1}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setNextPageCount(response.data.length);
+      } catch (error) {
+        console.error("Error fetching next page count:", error);
+      }
+    };
+
+    fetchNextPageCount();
   }, [page]);
 
   const handleDepartmentClick = (department: FireDepartment) => {
@@ -49,7 +71,7 @@ const FireDepartmentsContent: React.FC = () => {
   };
 
   const handleNextPage = () => {
-    if (page < totalPages - 1) {
+    if (nextPageCount > 0) {
       setPage(page + 1);
     }
   };
@@ -58,21 +80,18 @@ const FireDepartmentsContent: React.FC = () => {
     <div className="flex flex-col h-screen w-full">
       <h2 className="text-3xl mb-4 ml-6">Fire Departments</h2>
       <div className="flex justify-center flex-1 mt-16">
-        <div className="w-full">
+        <div className="w-1/2">
           <ul>
             {fireDepartments.map((department) => (
-              <li key={department.id} className="mb-2">
-                <div className="w-full">
+              <li key={department.departmentId} className="mb-2">
+                <div className="w-full flex justify-center">
                   <button
-                    className={`w-full bg-gray-800 text-white p-2 rounded-lg border border-gray-300 ${
-                      selectedDepartment === department ? "mb-4" : "mb-2"
-                    }`}
+                    className={`w-full bg-gray-800 text-white p-2 rounded-lg border border-gray-300 `}
                     onClick={() => handleDepartmentClick(department)}
-                    style={
-                      selectedDepartment === department
-                        ? { height: "auto", marginBottom: "1rem" }
-                        : {}
-                    }
+                    style={{
+                      height:
+                        selectedDepartment === department ? "auto" : "4rem", // Adjust the height as needed
+                    }}
                   >
                     {department.departmentName}
                     <span
@@ -96,26 +115,30 @@ const FireDepartmentsContent: React.FC = () => {
               </li>
             ))}
           </ul>
-          <button
-            className={`mt-4 bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 ${
-              page === 0 ? "opacity-50 cursor-not-allowed" : "bg-gray-300"
-            }`}
-            onClick={handlePreviousPage}
-            disabled={page === 0}
-          >
-            Back
-          </button>
-          <button
-            className={`mt-4 bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 ${
-              page >= totalPages - 1
-                ? "opacity-50 cursor-not-allowed"
-                : "bg-gray-300"
-            }`}
-            onClick={handleNextPage}
-            disabled={page >= totalPages - 1}
-          >
-            Next
-          </button>
+          <div className="flex justify-between mt-2 mb-4">
+            <button
+              className={`bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 w-1/5 ${
+                page === 0 ? "opacity-50 cursor-not-allowed" : "bg-gray-300"
+              }`}
+              onClick={handlePreviousPage}
+              disabled={page === 0}
+            >
+              Back
+            </button>
+            <span className="text-xl flex items-center">{page + 1}</span>{" "}
+            {/* Page Number */}
+            <button
+              className={`bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 w-1/5 ${
+                nextPageCount === 0
+                  ? "opacity-50 cursor-not-allowed"
+                  : "bg-gray-300"
+              }`}
+              onClick={handleNextPage}
+              disabled={nextPageCount === 0}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>

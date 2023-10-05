@@ -156,13 +156,15 @@ public class LoginPanel extends JPanel {
             String username = loginPanelLogin.getText();
             String password = loginPanelPassword.getText();
 
+            String token = ApiService.validateUser(username, password);
+
             // Validate the credentials against the database
-            if (ApiService.validateUser(username, password)) {
+            if (token != null && !token.isEmpty()) {
                 // User login successful
-                // JOptionPane.showMessageDialog(null, "Login successful!");
+                // JOptionPane.showMessageDialog(null, token);
 
                 // Switch to the dashboard frame
-                SessionManager.setLoggedInUser(username);
+                SessionManager.setLoggedInUser(username, token);
                 frame.switchToDashboardMenu();
             } else {
                 // Invalid credentials

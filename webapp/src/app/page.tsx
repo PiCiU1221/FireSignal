@@ -1,11 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
+
 import Sidebar from "../components/Sidebar";
 import Dashboard from "../components/Dashboard";
 
 export default function Home() {
   const [activeMenu, setActiveMenu] = useState("new-alarm"); // Default active menu
+
+  useEffect(() => {
+    // Retrieve the token from the cookie
+    const cookieToken = Cookies.get("token");
+
+    // Check if the token exists
+    if (!cookieToken) {
+      handleLogout();
+    }
+  }, []);
 
   const handleMenuClick = (menu: string) => {
     setActiveMenu(menu);
@@ -13,8 +25,11 @@ export default function Home() {
   };
 
   const handleLogout = () => {
-    // Add code here to handle logout
-    console.log("Logout clicked");
+    // Remove the token from the cookie
+    Cookies.remove("token");
+
+    // Redirect the user to the login page
+    window.location.href = "/login";
   };
 
   return (
@@ -22,12 +37,15 @@ export default function Home() {
       <section className="bg-gray-900">
         <div className="flex flex-row h-screen">
           <Sidebar
-            activeMenu={activeMenu} // Pass the active menu as a prop
-            handleMenuClick={handleMenuClick} // Pass the click handler as a prop
-            handleLogout={handleLogout} // Pass the logout handler as a prop
+            activeMenu={activeMenu}
+            handleMenuClick={handleMenuClick}
+            handleLogout={handleLogout}
           />
-          <Dashboard activeMenu={activeMenu} />{" "}
-          {/* Pass the active menu as a prop */}
+          <div
+            className="flex-1 overflow-y-scroll" // Enable scrolling for the Dashboard
+          >
+            <Dashboard activeMenu={activeMenu} />
+          </div>
         </div>
       </section>
     </main>

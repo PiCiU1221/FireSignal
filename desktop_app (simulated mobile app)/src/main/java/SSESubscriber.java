@@ -7,19 +7,45 @@ import org.apache.http.impl.client.HttpClients;
 import org.springframework.http.MediaType;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class SSESubscriber {
     private static final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-    public static void startSseSubscription(String username, MessageReceivedCallback callback) {
+    private static final String API_BASE_URL_KEY = "api.baseurl";
+
+    private static String getBaseUrl() {
+        Properties properties = new Properties();
+
+        try (FileInputStream fis = new FileInputStream("src/main/resources/config/config.properties")) {
+            if (fis != null) {
+                properties.load(fis);
+                return properties.getProperty(API_BASE_URL_KEY);
+            } else {
+                System.err.println("Config properties file not found.");
+                return null;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static void startSseSubscription(String username, String token, MessageReceivedCallback callback) {
+        String baseUrl = getBaseUrl();
+
         executorService.execute(() -> {
             CloseableHttpClient httpClient = HttpClients.createDefault();
-            HttpGet request = new HttpGet("http://localhost:8080/api/subscribe/" + username);
+            HttpGet request = new HttpGet(baseUrl + "/api/subscribe/" + username);
             request.addHeader("Accept", MediaType.TEXT_EVENT_STREAM_VALUE);
+
+            // Add the Authorization header with the token
+            request.addHeader("Authorization", "Bearer " + token);
 
             try {
                 HttpResponse response = httpClient.execute(request);

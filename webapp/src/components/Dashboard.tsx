@@ -1,4 +1,5 @@
 import React from "react";
+
 import NewAlarmContent from "./NewAlarmContent";
 import AlarmsContent from "./AlarmsContent";
 import FireDepartmentsContent from "./FireDepartmentsContent";

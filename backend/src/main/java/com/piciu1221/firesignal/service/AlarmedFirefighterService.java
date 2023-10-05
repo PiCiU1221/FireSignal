@@ -1,5 +1,6 @@
 package com.piciu1221.firesignal.service;
 
+import com.piciu1221.firesignal.dto.ConsolidatedAlarmInfoDTO;
 import com.piciu1221.firesignal.model.AlarmedFirefighter;
 import com.piciu1221.firesignal.model.AlarmedFirefighterId;
 import com.piciu1221.firesignal.repository.AlarmedFirefighterRepository;
@@ -17,29 +18,16 @@ public class AlarmedFirefighterService {
     @Autowired
     private FirefighterRepository firefighterRepository;
 
-    public int getAlarmedFirefightersCount(int alarmId, String firefighterUsername) {
+    public ConsolidatedAlarmInfoDTO getConsolidatedAlarmInfo(int alarmId, String firefighterUsername) {
         Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
-        return alarmedFirefighterRepository.findCountByDepartmentIdAndAlarmId(departmentId, alarmId);
-    }
 
-    public boolean hasAcceptedCommander(int alarmId, String firefighterUsername) {
-        Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
-        return alarmedFirefighterRepository.hasAcceptedCommander(departmentId, alarmId);
-    }
+        int count = alarmedFirefighterRepository.findCountByDepartmentIdAndAlarmId(departmentId, alarmId);
+        boolean hasAcceptedCommander = alarmedFirefighterRepository.hasAcceptedCommander(departmentId, alarmId);
+        int acceptedDriversCount = alarmedFirefighterRepository.getAcceptedDriversCount(departmentId, alarmId);
+        int acceptedFirefightersCount = alarmedFirefighterRepository.getAcceptedFirefightersCount(departmentId, alarmId);
+        boolean hasAcceptedTechnicalRescue = alarmedFirefighterRepository.hasAcceptedTechnicalRescue(departmentId, alarmId);
 
-    public int getAcceptedDriversCount(int alarmId, String firefighterUsername) {
-        Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
-        return alarmedFirefighterRepository.getAcceptedDriversCount(departmentId, alarmId);
-    }
-
-    public int getAcceptedFirefightersCount(int alarmId, String firefighterUsername) {
-        Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
-        return alarmedFirefighterRepository.getAcceptedFirefightersCount(departmentId, alarmId);
-    }
-
-    public boolean hasAcceptedTechnicalRescue(int alarmId, String firefighterUsername) {
-        Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
-        return alarmedFirefighterRepository.hasAcceptedTechnicalRescue(departmentId, alarmId);
+        return new ConsolidatedAlarmInfoDTO(count, hasAcceptedCommander, acceptedDriversCount, acceptedFirefightersCount, hasAcceptedTechnicalRescue);
     }
 
     public void acceptFirefighter(Integer alarmId, Integer firefighterId) {
@@ -65,6 +53,33 @@ public class AlarmedFirefighterService {
         alarmedFirefighter.setAccepted(false);
         alarmedFirefighterRepository.save(alarmedFirefighter);
     }
+
+    /*
+    public int getAlarmedFirefightersCount(int alarmId, String firefighterUsername) {
+        Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
+        return alarmedFirefighterRepository.findCountByDepartmentIdAndAlarmId(departmentId, alarmId);
+    }
+
+    public boolean hasAcceptedCommander(int alarmId, String firefighterUsername) {
+        Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
+        return alarmedFirefighterRepository.hasAcceptedCommander(departmentId, alarmId);
+    }
+
+    public int getAcceptedDriversCount(int alarmId, String firefighterUsername) {
+        Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
+        return alarmedFirefighterRepository.getAcceptedDriversCount(departmentId, alarmId);
+    }
+
+    public int getAcceptedFirefightersCount(int alarmId, String firefighterUsername) {
+        Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
+        return alarmedFirefighterRepository.getAcceptedFirefightersCount(departmentId, alarmId);
+    }
+
+    public boolean hasAcceptedTechnicalRescue(int alarmId, String firefighterUsername) {
+        Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
+        return alarmedFirefighterRepository.hasAcceptedTechnicalRescue(departmentId, alarmId);
+    }
+    */
 
     /* SSE testing
     public Flux<String> subscribeToAlarmedFirefighters(String username) {

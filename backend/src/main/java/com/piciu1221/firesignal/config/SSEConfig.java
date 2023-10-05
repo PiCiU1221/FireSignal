@@ -1,4 +1,4 @@
-package com.piciu1221.firesignal;
+package com.piciu1221.firesignal.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

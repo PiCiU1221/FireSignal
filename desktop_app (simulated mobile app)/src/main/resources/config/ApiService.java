@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static main.resources.config.ApiUtils.performHttpPost;
+import static main.resources.config.ApiUtils.performVerificationHttpPost;
 
 public class ApiService {
     private static final String CONFIG_FILE = "config.properties";
@@ -31,21 +32,21 @@ public class ApiService {
         }
     }
 
-    public static boolean validateUser(String username, String password) {
+    public static String validateUser(String username, String password) {
         String baseUrl = getBaseUrl();
         if (baseUrl == null) {
             System.err.println("Base URL not found in config.properties");
-            return false;
+            return null;
         } else {
-            String endpoint = "/api/validate-user";
+            String endpoint = "/api/auth/authenticate";
             String jsonPayload = "{\"username\": \"" + username + "\", \"password\": \"" + password + "\"}";
 
-            String response = performHttpPost(baseUrl + endpoint, jsonPayload);
+            String response = performVerificationHttpPost(baseUrl + endpoint, jsonPayload);
             if (response != null) {
-                return Boolean.parseBoolean(response);
+                return response;
             } else {
                 System.err.println("Error during HTTP request.");
-                return false;
+                return null;
             }
         }
     }
@@ -72,12 +73,19 @@ public class ApiService {
             String jsonPayload = "{\"username\": \"" + username + "\"}";
             String response = performHttpPost(baseUrl + endpoint, jsonPayload);
 
+            if (response == null) {
+                return null;
+            }
+
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode responseJson = objectMapper.readTree(response);
 
-                String firefighterName = responseJson.get("firefighterName").asText();
-                return firefighterName;
+                if (responseJson.get("firefighterName") != null) {
+                    return responseJson.get("firefighterName").asText();
+                } else {
+                    return null;
+                }
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
                 // Handle the exception, return a default value, or rethrow as appropriate

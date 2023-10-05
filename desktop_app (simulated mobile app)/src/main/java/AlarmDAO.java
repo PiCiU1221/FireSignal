@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class AlarmDAO {
+    /*
     public static List<Alarm> getNewestAlarmsForFirefighter(int skip, int howMuch) {
         List<Alarm> alarms = new ArrayList<>();
 
@@ -195,4 +196,5 @@ public class AlarmDAO {
 
         return result;
     }
+    */
 }

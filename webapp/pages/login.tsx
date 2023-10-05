@@ -1,12 +1,21 @@
 import "../styles/globals.css";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    // Check if the user is authenticated (e.g., valid token in cookies)
+    const token = Cookies.get("token");
+    if (token) {
+      window.location.href = "/"; // Redirect to the dashboard if authenticated
+    }
+  }, []);
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,7 +23,7 @@ export default function LoginPage() {
     const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
     try {
-      const response = await fetch(`${apiBaseUrl}/api/login`, {
+      const response = await fetch(`${apiBaseUrl}/api/auth/authenticate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,15 +32,24 @@ export default function LoginPage() {
       });
 
       if (response.ok) {
-        // Login was successful, redirect to dashboard or main page
-        window.location.href = "/"; // Replace "/dashboard" with your desired route
+        const token = await response.text();
+        Cookies.set("token", token, { expires: 1 }); // Store the token in a cookie with an expiration of one day
+
+        window.location.href = "/"; // Redirect to the desired route
       } else {
-        // Login failed, display error message
-        setError("Invalid credentials");
+        if (response.status === 401) {
+          // Unauthorized, i.e., invalid credentials
+          setError(
+            "Invalid credentials. Please check your username and password."
+          );
+        } else {
+          // Handle server errors differently
+          setError("An error occurred during login. Please try again later.");
+        }
       }
     } catch (error) {
       console.error("Error during login:", error);
-      setError("An error occurred during login");
+      setError("An error occurred during login. Please try again later.");
     }
   };
 
@@ -52,7 +70,11 @@ export default function LoginPage() {
               <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
                 Sign in to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" onSubmit={handleLogin}>
+              <form
+                className="space-y-4 md:space-y-6"
+                onSubmit={handleLogin}
+                action="/api/auth/authenticate"
+              >
                 <div>
                   <label
                     htmlFor="username"
@@ -91,9 +113,7 @@ export default function LoginPage() {
                     onChange={(e) => setPassword(e.target.value)}
                   ></input>
                   {error && (
-                    <p className="mt-1 text-sm text-red-500">
-                      Login failed. Please check your credentials.
-                    </p>
+                    <p className="mt-1 text-sm text-red-500">{error}</p>
                   )}
                 </div>
                 <div className="flex items-center justify-between">

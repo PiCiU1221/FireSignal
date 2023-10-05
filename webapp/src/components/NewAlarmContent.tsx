@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import dynamic from "next/dynamic";
+import Cookies from "js-cookie";
 
 // Load MapDisplay dynamically
 const MapDisplayDynamic = dynamic(() => import("./MapDisplay"), {
@@ -33,6 +34,8 @@ const NewAlarmContent = () => {
     useState<string[]>([]);
   const [alarmDescription, setAlarmDescription] = useState<string>("");
   const [dispatchError, setDispatchError] = useState<string | null>(null);
+
+  const token = Cookies.get("token"); // Get the token from cookies
 
   // Handle form submission to geocode the address
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -102,6 +105,7 @@ const NewAlarmContent = () => {
 
       const response = await axios.get(
         `https://api.openrouteservice.org/v2/directions/driving-car`,
+        //`http://localhost:8081/ors/v2/directions/driving-car`,
         {
           params: {
             api_key: apiKey,
@@ -133,7 +137,12 @@ const NewAlarmContent = () => {
     const fetchFireDepartments = async () => {
       try {
         const response = await axios.get<FireDepartment[]>(
-          "/api/fire-departments/all"
+          "/api/fire-departments/all",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`, // Include the token in the header
+            },
+          }
         );
         setFireDepartments(response.data);
       } catch (error) {
@@ -178,7 +187,11 @@ const NewAlarmContent = () => {
       };
 
       try {
-        const response = await axios.post("/api/dispatch", alarmData);
+        const response = await axios.post("/api/dispatch", alarmData, {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the header
+          },
+        });
         console.log("Alarm dispatched:", response.data);
         // Reset form after successful dispatch
         setAddressInput("");
@@ -198,7 +211,7 @@ const NewAlarmContent = () => {
   return (
     <div className="flex flex-col w-full h-screen p-8">
       <h2 className="text-4xl mb-4 ml-6 font-semibold">New Alarm</h2>
-      <div className="flex justify-center flex-1 mt-8">
+      <div className="flex justify-center flex-1 mt-8 bg-gray-800">
         {/* Form for geocoding address */}
         <div className="flex-3 border p-4" style={{ flex: "0 0 30%" }}>
           <h3 className="text-lg font-semibold mb-2 text-center">

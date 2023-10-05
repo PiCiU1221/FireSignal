@@ -1,3 +1,13 @@
+import { useEffect, useState } from "react";
+import jwtDecode from "jwt-decode";
+import Cookies from "js-cookie";
+
+interface JwtPayload {
+  sub: string;
+  exp: number;
+  iat: number;
+}
+
 interface SidebarProps {
   activeMenu: string;
   handleMenuClick: (menu: string) => void;
@@ -9,6 +19,22 @@ const Sidebar: React.FC<SidebarProps> = ({
   handleMenuClick,
   handleLogout,
 }) => {
+  // Use state to manage subject and initialize it to an empty string
+  const [subject, setSubject] = useState<string>("");
+
+  // Define a function to fetch and set the subject from cookies
+  const fetchSubjectFromCookies = () => {
+    const token = Cookies.get("token");
+    const decodedToken = token ? jwtDecode<JwtPayload>(token) : null;
+    const newSubject = decodedToken ? decodedToken.sub : "";
+    setSubject(newSubject);
+  };
+
+  // Use useEffect to fetch subject on the client side after initial render
+  useEffect(() => {
+    fetchSubjectFromCookies();
+  }, []); // Empty dependency array means this effect runs after the initial render
+
   return (
     <aside className="bg-gray-800 h-screen flex flex-col p-6">
       {/* Logo and Company Name */}
@@ -64,9 +90,11 @@ const Sidebar: React.FC<SidebarProps> = ({
       </nav>
 
       {/* Display Username */}
-      <div className="text-white text-sm text-center font-semibold mb-1">
-        Welcome, mdrogosz
-      </div>
+      {subject && ( // Render only if subject is available
+        <div className="text-white text-sm text-center font-semibold mb-1">
+          Welcome, {subject}
+        </div>
+      )}
 
       {/* Logout Button */}
       <button

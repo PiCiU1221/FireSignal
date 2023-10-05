@@ -25,7 +25,7 @@ public class FireDepartmentService {
     }
 
     public List<FireDepartment> getFireDepartmentsByPage(int page) {
-        int pageSize = 10;
+        int pageSize = 8;
         Pageable pageable = PageRequest.of(page, pageSize, Sort.by("departmentId").descending());
         Page<FireDepartment> fireDepartmentPage = fireDepartmentRepository.findAll(pageable);
         return fireDepartmentPage.getContent();
