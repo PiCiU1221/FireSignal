@@ -21,6 +21,7 @@ public class UserController {
         return ResponseEntity.ok(isValid);
     }
 
+    @CrossOrigin(origins = "https://piciu1221.github.io/register")
     @PostMapping("/register-user")
     public ResponseEntity<String> registerUser(@RequestBody UserDTO userDTO) {
         userService.registerUser(userDTO.getUsername(), userDTO.getPassword());
