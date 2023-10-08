@@ -17,10 +17,10 @@ public class User implements Serializable {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "username", nullable = false, length = 16)
+    @Column(name = "username", nullable = false, length = 128)
     private String username;
 
-    @Column(name = "password", nullable = false, length = 32)
+    @Column(name = "password", nullable = false, length = 128)
     private String password;
 
     @Column(name = "role", nullable = false, length = 255, columnDefinition = "varchar(255) default 'user'")

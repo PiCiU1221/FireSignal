@@ -34,7 +34,7 @@ public class SecurityConfig {
                         // Allow access to authentication endpoint for all
                         .requestMatchers("/api/auth/authenticate").permitAll()
                         .requestMatchers("/api/register-user").permitAll()
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAthFilter, UsernamePasswordAuthenticationFilter.class)
