@@ -24,5 +24,5 @@ public class User implements Serializable {
     private String password;
 
     @Column(name = "role", nullable = false, length = 255, columnDefinition = "varchar(255) default 'user'")
-    private String role;
+    private String role = "user";
 }
