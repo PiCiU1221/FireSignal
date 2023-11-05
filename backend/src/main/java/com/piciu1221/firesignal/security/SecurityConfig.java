@@ -34,6 +34,10 @@ public class SecurityConfig {
                         // Allow access to authentication endpoint for all
                         .requestMatchers("/api/auth/authenticate").permitAll()
                         .requestMatchers("/api/register-user").permitAll()
+
+                        .requestMatchers("/api/commander").hasRole("COMMANDER")
+                        .requestMatchers("/api/admin").hasRole("ADMIN")
+
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())

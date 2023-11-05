@@ -5,6 +5,7 @@ import com.piciu1221.firesignal.model.AlarmedFirefighter;
 import com.piciu1221.firesignal.model.AlarmedFirefighterId;
 import com.piciu1221.firesignal.repository.AlarmedFirefighterRepository;
 import com.piciu1221.firesignal.repository.FirefighterRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -30,6 +31,15 @@ public class AlarmedFirefighterService {
         return new ConsolidatedAlarmInfoDTO(count, hasAcceptedCommander, acceptedDriversCount, acceptedFirefightersCount, hasAcceptedTechnicalRescue);
     }
 
+    public void updateAcceptanceStatus(Integer alarmId, Integer firefighterId, boolean isAccepted) {
+        AlarmedFirefighter alarmedFirefighter = alarmedFirefighterRepository.findById(new AlarmedFirefighterId(alarmId, firefighterId))
+                .orElseThrow(() -> new EntityNotFoundException("AlarmedFirefighter not found"));
+
+        alarmedFirefighter.setAccepted(isAccepted);
+        alarmedFirefighterRepository.save(alarmedFirefighter);
+    }
+
+    /*
     public void acceptFirefighter(Integer alarmId, Integer firefighterId) {
         AlarmedFirefighter alarmedFirefighter = new AlarmedFirefighter();
 
@@ -54,7 +64,6 @@ public class AlarmedFirefighterService {
         alarmedFirefighterRepository.save(alarmedFirefighter);
     }
 
-    /*
     public int getAlarmedFirefightersCount(int alarmId, String firefighterUsername) {
         Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
         return alarmedFirefighterRepository.findCountByDepartmentIdAndAlarmId(departmentId, alarmId);

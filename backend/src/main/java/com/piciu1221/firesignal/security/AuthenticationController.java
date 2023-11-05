@@ -1,6 +1,6 @@
 package com.piciu1221.firesignal.security;
 
-import com.piciu1221.firesignal.LoginRequest;
+import com.piciu1221.firesignal.dto.LoginDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,7 +22,7 @@ public class AuthenticationController {
 
     @PostMapping("/authenticate")
     public ResponseEntity<String> authenticate(
-            @RequestBody LoginRequest request
+            @RequestBody LoginDTO request
     ) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
