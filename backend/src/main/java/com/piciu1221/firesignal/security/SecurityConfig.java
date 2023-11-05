@@ -33,6 +33,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         // Allow access to authentication endpoint for all
                         .requestMatchers("/api/auth/authenticate").permitAll()
+                        .requestMatchers("/api/auth/user-role").permitAll()
                         .requestMatchers("/api/register-user").permitAll()
 
                         .requestMatchers("/api/commander").hasRole("COMMANDER")
