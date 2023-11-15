@@ -5,7 +5,32 @@ Firefighters belonging to the selected fire departments, upon logging into the d
 
 This system enables volunteer fire departments to respond much more quickly than relying on the fire chief to receive alarm information and then individually call or text each firefighter in the department, a process that takes way too long.
 
+<br>
+
 ## Test Account Details
 
 - **Username:** admin
 - **Password:** admin
+
+<br>
+
+## Screenshots
+
+### Web App
+
+### Login
+![login](./screenshots/webApp_login.png)
+
+### Add fire department
+![addFireDepartment](./screenshots/webApp_addFireDepartment.png)
+
+### Dispatch new alarm
+![dispatch](./screenshots/webApp_newAlarm.png)
+
+### Desktop app
+
+### Alarm message
+![alarmMessage](./screenshots/desktopApp_alarm.png)
+
+### Alarm message
+![menu](./screenshots/desktopApp_menu.png)
