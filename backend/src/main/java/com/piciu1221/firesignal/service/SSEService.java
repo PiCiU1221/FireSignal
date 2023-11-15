@@ -7,11 +7,22 @@ import reactor.core.publisher.FluxSink;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Service class for managing Server-Sent Events (SSE) connections.
+ * Allows users to subscribe, send messages, and track active connections.
+ */
 @Service
 public class SSEService {
 
+    // Map to store user-specific FluxSinks for SSE connections
     private final Map<String, FluxSink<String>> userSinkMap = new ConcurrentHashMap<>();
 
+    /**
+     * Subscribes a user to SSE for receiving alarmed firefighter notifications.
+     *
+     * @param username The username of the user subscribing to SSE.
+     * @return Flux<String> representing the SSE connection for the user.
+     */
     public Flux<String> subscribeToAlarmedFirefighters(String username) {
         System.out.println("Subscribing to SSE for user: " + username);
 
@@ -25,14 +36,31 @@ public class SSEService {
         });
     }
 
+    /**
+     * Adds a FluxSink for a user to the userSinkMap.
+     *
+     * @param username The username of the user.
+     * @param sink The FluxSink associated with the user's SSE connection.
+     */
     public void addUserSink(String username, FluxSink<String> sink) {
         userSinkMap.put(username, sink);
     }
 
+    /**
+     * Removes a user's FluxSink from the userSinkMap.
+     *
+     * @param username The username of the user.
+     */
     public void removeUserSink(String username) {
         userSinkMap.remove(username);
     }
 
+    /**
+     * Sends an SSE message to a specific user.
+     *
+     * @param username The username of the user.
+     * @param message The SSE message to send.
+     */
     public void sendSseMessageToUser(String username, String message) {
         FluxSink<String> sink = userSinkMap.get(username);
         if (sink != null) {
@@ -40,6 +68,12 @@ public class SSEService {
         }
     }
 
+    /**
+     * Checks if a user has an active SSE connection.
+     *
+     * @param username The username of the user.
+     * @return true if the user has an active SSE connection, false otherwise.
+     */
     public boolean isUserActive(String username) {
         return userSinkMap.containsKey(username);
     }

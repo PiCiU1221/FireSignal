@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Service class for managing alarm-related operations.
+ */
 @Service
 public class AlarmService {
     private final AlarmRepository alarmRepository;
@@ -34,6 +37,12 @@ public class AlarmService {
         this.firefighterRepository = firefighterRepository;
     }
 
+    /**
+     * Creates and dispatches a new alarm based on the provided data.
+     *
+     * @param alarmData The AlarmData object containing information about the new alarm.
+     * @return The created Alarm object.
+     */
     public Alarm createAndDispatchAlarm(AlarmData alarmData) {
         // Create a new alarm based on the provided data
         Alarm newAlarm = new Alarm();
@@ -55,11 +64,19 @@ public class AlarmService {
         return savedAlarm;
     }
 
+    /**
+     * Dispatches an alarm to the selected firefighters.
+     *
+     * @param savedAlarm           The Alarm object representing the alarm to be dispatched.
+     * @param selectedFirefighters List of Firefighter objects representing the selected firefighters.
+     */
     public void dispatchAlarm(Alarm savedAlarm, List<Firefighter> selectedFirefighters) {
+        // Filter out inactive firefighters from the selected list
         List<Firefighter> activeSelectedFirefighters = selectedFirefighters.stream()
                 .filter(firefighter -> sseService.isUserActive(firefighter.getFirefighterUsername()))
                 .toList();
 
+        // Create alarmedFirefighter objects and send SSE messages to selected firefighters
         List<AlarmedFirefighter> alarmedFirefighters = new ArrayList<>();
         for (Firefighter firefighter : activeSelectedFirefighters) {
             AlarmedFirefighter alarmedFirefighter = new AlarmedFirefighter();
@@ -71,6 +88,7 @@ public class AlarmService {
             alarmedFirefighter.setFirefighter(firefighter);
             alarmedFirefighters.add(alarmedFirefighter);
 
+            // Send SSE message to the selected firefighter
             String username = firefighter.getFirefighterUsername();
             String message = "Id: " + savedAlarm.getAlarmId() + ", FirefighterId: " + firefighter.getFirefighterId() +
                     ", City: " + savedAlarm.getAlarmCity() + ", Street: " + savedAlarm.getAlarmStreet() +
@@ -78,14 +96,30 @@ public class AlarmService {
             sseService.sendSseMessageToUser(username, message);
         }
 
+        // Save alarmedFirefighter entities to the database
         alarmedFirefighterRepository.saveAll(alarmedFirefighters);
     }
 
+    /**
+     * Retrieves a paginated list of alarms for a given firefighter.
+     *
+     * @param username The username of the firefighter.
+     * @param page     The page number to retrieve.
+     * @param size     The number of items per page.
+     * @return List of Alarm objects representing a page of alarms for the firefighter.
+     */
     public List<Alarm> getAlarmsForFirefighter(String username, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return alarmRepository.findAlarmsForFirefighter(username, pageable);
     }
 
+    /**
+     * Retrieves the latest alarms with associated fire departments in a paginated manner.
+     *
+     * @param page     The page number to retrieve.
+     * @param pageSize The number of items per page.
+     * @return List of AlarmWithFireDepartments objects representing a page of alarms with associated fire departments.
+     */
     public List<AlarmWithFireDepartments> getLatestAlarmsWithDepartments(int page, int pageSize) {
         Pageable pageable = PageRequest.of(page, pageSize, Sort.by("alarmId").descending());
 

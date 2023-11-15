@@ -8,10 +8,10 @@ import com.piciu1221.firesignal.repository.FirefighterRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Flux;
 
-import java.time.LocalDateTime;
-
+/**
+ * Service class for managing alarmed firefighter-related operations.
+ */
 @Service
 public class AlarmedFirefighterService {
     @Autowired
@@ -19,18 +19,35 @@ public class AlarmedFirefighterService {
     @Autowired
     private FirefighterRepository firefighterRepository;
 
+    /**
+     * Retrieves consolidated information about alarmed firefighters for a given alarm and department.
+     *
+     * @param alarmId             The ID of the alarm.
+     * @param firefighterUsername The username of the firefighter.
+     * @return ConsolidatedAlarmInfoDTO containing information about alarmed firefighters.
+     */
     public ConsolidatedAlarmInfoDTO getConsolidatedAlarmInfo(int alarmId, String firefighterUsername) {
+        // Retrieve the department ID for the given firefighter username
         Integer departmentId = firefighterRepository.findDepartmentIdByUsername(firefighterUsername);
 
+        // Retrieve various counts and flags related to alarmed firefighters for a given department and alarm
         int count = alarmedFirefighterRepository.findCountByDepartmentIdAndAlarmId(departmentId, alarmId);
         boolean hasAcceptedCommander = alarmedFirefighterRepository.hasAcceptedCommander(departmentId, alarmId);
         int acceptedDriversCount = alarmedFirefighterRepository.getAcceptedDriversCount(departmentId, alarmId);
         int acceptedFirefightersCount = alarmedFirefighterRepository.getAcceptedFirefightersCount(departmentId, alarmId);
         boolean hasAcceptedTechnicalRescue = alarmedFirefighterRepository.hasAcceptedTechnicalRescue(departmentId, alarmId);
 
+        // Create and return a ConsolidatedAlarmInfoDTO with the retrieved information
         return new ConsolidatedAlarmInfoDTO(count, hasAcceptedCommander, acceptedDriversCount, acceptedFirefightersCount, hasAcceptedTechnicalRescue);
     }
 
+    /**
+     * Updates the acceptance status of an alarmed firefighter for a given alarm.
+     *
+     * @param alarmId      The ID of the alarm.
+     * @param firefighterId The ID of the firefighter.
+     * @param isAccepted   The new acceptance status.
+     */
     public void updateAcceptanceStatus(Integer alarmId, Integer firefighterId, boolean isAccepted) {
         AlarmedFirefighter alarmedFirefighter = alarmedFirefighterRepository.findById(new AlarmedFirefighterId(alarmId, firefighterId))
                 .orElseThrow(() -> new EntityNotFoundException("AlarmedFirefighter not found"));

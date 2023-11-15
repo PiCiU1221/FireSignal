@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Controller class for handling authentication-related API endpoints.
+ */
 @RestController
 @RequestMapping("/api/auth")
 public class UserRoleController {
@@ -16,6 +19,12 @@ public class UserRoleController {
     @Autowired
     private UserService userService;
 
+    /**
+     * Endpoint for retrieving the role of a user based on the username.
+     *
+     * @param username The username for which to retrieve the role.
+     * @return ResponseEntity with the user's role in a UserRoleResponse.
+     */
     @GetMapping("/user-role")
     public ResponseEntity<UserRoleResponse> getUserRole(@RequestParam String username) {
         UserRoleResponse userRoleResponse = userService.getUserRole(username);

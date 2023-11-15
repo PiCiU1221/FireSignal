@@ -7,17 +7,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Controller class for handling alarmed firefighter-related HTTP requests.
+ */
 @RestController
 @RequestMapping("/api/alarmed-firefighter")
 public class AlarmedFirefighterController {
     @Autowired
     private AlarmedFirefighterService alarmedFirefighterService;
 
+    /**
+     * Endpoint for retrieving consolidated alarm information for a firefighter.
+     *
+     * @param alarmInfoRequestDTO The request DTO containing information about the alarm and firefighter.
+     * @return Consolidated alarm information for the specified firefighter.
+     */
     @PostMapping("/get-consolidated-alarm-info")
     public ConsolidatedAlarmInfoDTO getConsolidatedInfo(@RequestBody AlarmInfoRequestDTO alarmInfoRequestDTO) {
         return alarmedFirefighterService.getConsolidatedAlarmInfo(alarmInfoRequestDTO.getAlarmId(), alarmInfoRequestDTO.getFirefighterUsername());
     }
 
+    /**
+     * Endpoint for updating the acceptance status of an alarmed firefighter.
+     *
+     * @param alarmId       The ID of the alarm.
+     * @param firefighterId The ID of the firefighter.
+     * @param accept        The acceptance status (true or false).
+     * @return A response indicating the success of the update.
+     */
     @PatchMapping("/update-acceptance/{alarmId}/{firefighterId}")
     public ResponseEntity<?> manageAlarmedFirefighter(
             @PathVariable Integer alarmId,

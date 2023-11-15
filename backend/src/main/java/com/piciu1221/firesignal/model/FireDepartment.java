@@ -32,4 +32,7 @@ public class FireDepartment implements Serializable {
 
     @Column(name = "department_longitude", nullable = false, precision = 11, scale = 8)
     private double departmentLongitude;
+
+    @Column(name = "department_chief_user_id", nullable = false)
+    private int departmentChiefUserId;
 }

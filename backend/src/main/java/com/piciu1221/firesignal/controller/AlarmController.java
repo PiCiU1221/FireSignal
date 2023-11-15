@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controller class for handling alarm-related HTTP requests.
+ */
 @RestController
 @RequestMapping("/api/alarm")
 public class AlarmController {
@@ -34,7 +37,12 @@ public class AlarmController {
         this.alarmService = alarmService;
     }
 
-
+    /**
+     * Endpoint for dispatching a new alarm.
+     *
+     * @param alarmData The data for the new alarm.
+     * @return A response indicating the success of the dispatch.
+     */
     @PostMapping("/dispatch")
     public ResponseEntity<String> dispatchAlarm(@RequestBody AlarmData alarmData) {
         // Call the service layer method to create and dispatch the alarm
@@ -44,11 +52,24 @@ public class AlarmController {
         return ResponseEntity.ok("Alarm dispatched successfully");
     }
 
+    /**
+     * Endpoint for retrieving alarms for a specific firefighter.
+     *
+     * @param alarmDisplayRequestDTO The request DTO containing parameters for fetching alarms.
+     * @return A list of alarms for the specified firefighter.
+     */
     @PostMapping("/get-alarms-for-firefighter")
     public List<Alarm> getAlarmsForFirefighter(@RequestBody AlarmDisplayRequestDTO alarmDisplayRequestDTO) {
         return alarmService.getAlarmsForFirefighter(alarmDisplayRequestDTO.getUsername(), alarmDisplayRequestDTO.getSkip(), alarmDisplayRequestDTO.getHowMuch());
     }
 
+    /**
+     * Endpoint for fetching a paginated list of the latest alarms with associated fire departments.
+     *
+     * @param page           The page number.
+     * @param alarmsPerPage  The number of alarms per page.
+     * @return A response containing a list of alarms with associated fire departments.
+     */
     @GetMapping("/get-alarms-pages")
     public ResponseEntity<List<AlarmWithFireDepartments>> getFireDepartments(
             @RequestParam(defaultValue = "0") int page,

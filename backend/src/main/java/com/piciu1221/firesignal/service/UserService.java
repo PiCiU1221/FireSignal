@@ -1,18 +1,29 @@
 package com.piciu1221.firesignal.service;
 
-import com.piciu1221.firesignal.dto.LoginDTO;
-import com.piciu1221.firesignal.dto.LoginResponseDTO;
+import com.piciu1221.firesignal.controller.UserController;
+import com.piciu1221.firesignal.dto.UserDTO;
 import com.piciu1221.firesignal.dto.UserRoleResponse;
 import com.piciu1221.firesignal.model.Firefighter;
 import com.piciu1221.firesignal.model.User;
 import com.piciu1221.firesignal.repository.FirefighterRepository;
 import com.piciu1221.firesignal.repository.UserRepository;
+import com.piciu1221.firesignal.util.ApiResponse;
+import jakarta.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
+/**
+ * Service class for user-related operations, such as login, registration, and role retrieval.
+ */
 @Service
+@Transactional
 public class UserService {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private final UserRepository userRepository;
     private final FirefighterRepository firefighterRepository;
@@ -23,48 +34,77 @@ public class UserService {
         this.firefighterRepository = firefighterRepository;
     }
 
-    public ResponseEntity<String> processLogin(LoginDTO loginRequest) {
-        LoginResponseDTO loginResponse = loginUser(loginRequest.getUsername(), loginRequest.getPassword());
+    public ApiResponse<String> processLogin(UserDTO userDTO) {
+        String username = userDTO.getUsername();
+        String password = userDTO.getPassword();
 
-        if (loginResponse.isSuccess()) {
-            return ResponseEntity.ok("Login successful!");
-        } else {
-            return ResponseEntity.badRequest().body("Invalid credentials");
-        }
-    }
+        // Log the login attempt
+        logger.info("Attempting login for user '{}'", username);
 
-    public LoginResponseDTO loginUser(String username, String password) {
         // Find the user by the provided username
         User user = userRepository.findByUsername(username);
 
+        // Check if the user is found
         if (user == null) {
-            // User not found, return failure response
-            return new LoginResponseDTO(false, "User not found");
+            // Log the user not found
+            logger.warn("User '{}' not found during login attempt", username);
+            return new ApiResponse<>(false, "User not found", null);
         }
 
+        // Check if the provided password matches the user's password
         if (!user.getPassword().equals(password)) {
-            // Incorrect password, return failure response
-            return new LoginResponseDTO(false, "Incorrect password");
+            // Log incorrect password attempt
+            logger.warn("Incorrect password for user '{}'", username);
+            return new ApiResponse<>(false, "Incorrect password", null);
         }
 
-        // Login successful, return success response
-        return new LoginResponseDTO(true, "Login successful");
+        // Login successful
+        logger.info("Login successful for user '{}'", username);
+        return new ApiResponse<>(true, "Login successful", "Additional data if needed");
     }
 
-    public String registerUser(String username, String password) {
-        User existingUser = userRepository.findByUsername(username);
-        if (existingUser != null) {
-            return "Username already exists";
+    public ApiResponse<String> registerUser(UserDTO userDTO) {
+        try {
+            // Extract username and password from the UserDTO
+            String username = userDTO.getUsername();
+            String password = userDTO.getPassword();
+
+            // Log the registration attempt
+            logger.info("Attempting to register user '{}'", username);
+
+            // Check if a user with the same username already exists
+            if (checkIfUserExists(username)) {
+                // User already exists, return an error response
+                logger.warn("Username '{}' is already taken during registration attempt", username);
+                return ApiResponse.error("Username '" + username + "' is already taken.");
+            }
+
+            // Create a new User object with the provided username and password
+            User newUser = new User();
+            newUser.setUsername(username);
+            newUser.setPassword(password);
+
+            // Use Optional for a more nuanced handling of the repository result
+            Optional<User> savedUser = Optional.of(userRepository.save(newUser));
+
+            // Log successful registration
+            logger.info("User '{}' registered successfully.", newUser.getUsername());
+
+            // Return a success response
+            return ApiResponse.success("Registration successful for user '" + username + "'.");
+        } catch (Exception e) {
+            // Catch any unexpected exceptions and return an error response
+            logger.error("Failed to register the user.", e);
+            return ApiResponse.error("Failed to register the user. " + e.getMessage());
         }
-
-        User newUser = new User();
-        newUser.setUsername(username);
-        newUser.setPassword(password);
-        userRepository.save(newUser);
-
-        return "User registered successfully";
     }
 
+    /**
+     * Retrieves the firefighter name associated with the given username.
+     *
+     * @param username The username for which to retrieve the firefighter name.
+     * @return String representing the firefighter name or null if not found.
+     */
     public String getFirefighterName(String username) {
         Firefighter firefighter = firefighterRepository.findByFirefighterUsername(username);
 
@@ -75,6 +115,12 @@ public class UserService {
         return null; // Return null if no firefighter is found for the given username
     }
 
+    /**
+     * Retrieves the role of the user with the given username.
+     *
+     * @param username The username for which to retrieve the user role.
+     * @return UserRoleResponse containing the user role or null if the user is not found.
+     */
     public UserRoleResponse getUserRole(String username) {
         User user = userRepository.findByUsername(username);
 
@@ -85,5 +131,15 @@ public class UserService {
             // Handle the case where the user is not found
             return new UserRoleResponse(null);
         }
+    }
+
+    /**
+     * Checks if a user with the given username exists.
+     *
+     * @param username The username to check for existence.
+     * @return true if the user exists, false otherwise.
+     */
+    public boolean checkIfUserExists(String username) {
+        return userRepository.existsByUsername(username);
     }
 }

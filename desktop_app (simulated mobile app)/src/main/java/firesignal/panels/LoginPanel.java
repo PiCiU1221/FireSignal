@@ -1,12 +1,14 @@
 package firesignal.panels;
 
 import firesignal.menuholders.MyFrame;
+import firesignal.utils.ApiResponse;
 import firesignal.utils.ApiService;
 import firesignal.utils.GlobalVariables;
 import firesignal.utils.SessionManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
@@ -44,8 +46,8 @@ public class LoginPanel extends JPanel {
 
         GridBagConstraints c = new GridBagConstraints();
 
-        JButton switchToLoginButton1 = new JButton("Login");
-        switchToLoginButton1.setPreferredSize(new Dimension(0,50));
+        JButton switchToLoginButton1 = createStyledButton("Login", 0, 50);
+        //switchToLoginButton1.setPreferredSize(new Dimension(0,50));
         //switchToLoginButton1.setBackground(utils.GlobalVariables.BUTTON_BACKGROUND_COLOR);
 
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -54,8 +56,7 @@ public class LoginPanel extends JPanel {
         c.weightx = 0.5;
         loginPanel.add(switchToLoginButton1, c);
 
-        JButton switchToRegisterButton1 = new JButton("Register");
-        switchToRegisterButton1.setPreferredSize(new Dimension(0,50));
+        JButton switchToRegisterButton1 = createStyledButton("Register", 0, 50);
 
         c.gridx = 1;
         loginPanel.add(switchToRegisterButton1, c);
@@ -67,13 +68,15 @@ public class LoginPanel extends JPanel {
         loginPanel.add(Box.createVerticalStrut(25), c);
 
         loginPanelLogin = new JTextField(20);
+        loginPanelLogin.setFont(new Font("Arial", Font.PLAIN, 16));
 
         c.gridx = 0;
         c.gridy = 2;
         c.insets = new Insets(0,25, 0, 25);
         loginPanel.add(loginPanelLogin, c);
 
-        loginPanelPassword = new JTextField(20);
+        loginPanelPassword = new JPasswordField(20);
+        loginPanelPassword.setFont(new Font("Arial", Font.PLAIN, 16));
 
         c.gridy = 3;
         loginPanel.add(loginPanelPassword, c);
@@ -82,8 +85,7 @@ public class LoginPanel extends JPanel {
         c.insets = new Insets(0,0, 0, 0);
         loginPanel.add(Box.createVerticalStrut(25), c);
 
-        JButton loginButton = new JButton("Login");
-        loginButton.setPreferredSize(new Dimension(0,50));
+        JButton loginButton = createStyledButton("Login", 0, 50);
 
         c.gridy = 5;
         loginPanel.add(loginButton, c);
@@ -93,16 +95,14 @@ public class LoginPanel extends JPanel {
         registerPanel.setLayout(new GridBagLayout());
         registerPanel.setBackground(GlobalVariables.BACKGROUND_COLOR);
 
-        JButton switchToLoginButton2 = new JButton("Login");
-        switchToLoginButton2.setPreferredSize(new Dimension(0,50));
+        JButton switchToLoginButton2 = createStyledButton("Login", 0, 50);
 
         c.gridwidth = 1;
         c.gridx = 0;
         c.gridy = 0;
         registerPanel.add(switchToLoginButton2, c);
 
-        JButton switchToRegisterButton2 = new JButton("Register");
-        switchToRegisterButton2.setPreferredSize(new Dimension(0,50));
+        JButton switchToRegisterButton2 = createStyledButton("Register", 0, 50);
 
         c.gridx = 1;
         registerPanel.add(switchToRegisterButton2, c);
@@ -114,13 +114,15 @@ public class LoginPanel extends JPanel {
         registerPanel.add(Box.createVerticalStrut(25), c);
 
         registerPanelLogin = new JTextField(20);
+        registerPanelLogin.setFont(new Font("Arial", Font.PLAIN, 16));
 
         c.gridx = 0;
         c.gridy = 2;
         c.insets = new Insets(0,25, 0, 25);
         registerPanel.add(registerPanelLogin, c);
 
-        registerPanelPassword = new JTextField(20);
+        registerPanelPassword = new JPasswordField(20);
+        registerPanelPassword.setFont(new Font("Arial", Font.PLAIN, 16));
 
         c.gridy = 3;
         registerPanel.add(registerPanelPassword, c);
@@ -129,8 +131,7 @@ public class LoginPanel extends JPanel {
         c.insets = new Insets(0,0, 0, 0);
         registerPanel.add(Box.createVerticalStrut(25), c);
 
-        JButton registerButton = new JButton("Register");
-        registerButton.setPreferredSize(new Dimension(0,50));
+        JButton registerButton = createStyledButton("Register", 0, 50);
 
         c.gridy = 5;
         registerPanel.add(registerButton, c);
@@ -145,7 +146,6 @@ public class LoginPanel extends JPanel {
         ActionListener loginSwitch = e -> cardLayout.show(cardPanel, "login");
         ActionListener registerSwitch = e -> cardLayout.show(cardPanel, "register");
 
-
         // Add action listeners to buttons
         switchToLoginButton1.addActionListener(loginSwitch);
         switchToLoginButton2.addActionListener(loginSwitch);
@@ -159,35 +159,52 @@ public class LoginPanel extends JPanel {
             String username = loginPanelLogin.getText();
             String password = loginPanelPassword.getText();
 
-            String token = ApiService.validateUser(username, password);
+            ApiResponse<String> response = ApiService.validateUser(username, password);
 
             // Validate the credentials against the database
-            if (token != null && !token.isEmpty()) {
+            if (response.isSuccess()) {
                 // User login successful
-                // JOptionPane.showMessageDialog(null, token);
+                String token = response.getData();
+
+                // To check the token value
+                //JOptionPane.showMessageDialog(null, token);
 
                 // Switch to the dashboard frame
                 SessionManager.setLoggedInUser(username, token);
                 frame.switchToDashboardMenu();
             } else {
                 // Invalid credentials
-                JOptionPane.showMessageDialog(null, "Invalid username or password.");
+                JOptionPane.showMessageDialog(null, response.getMessage());
             }
         });
 
-        // Add action listener to the register button
         registerButton.addActionListener(e -> {
             String username = registerPanelLogin.getText();
             String password = registerPanelPassword.getText();
 
             // Validate if username and password are not empty
             if (username.isEmpty() || password.isEmpty()) {
-                System.out.println("Please enter a username and password.");
+                // Show a message dialog to the user
+                JOptionPane.showMessageDialog(null, "Please enter a username and password.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
             // Register the user
-            ApiService.registerUser(username, password);
+            ApiResponse<String> response = ApiService.registerUser(username, password);
+
+            if (response.isSuccess()) {
+                // Registration successful
+                JOptionPane.showMessageDialog(null, response.getMessage());
+
+                // Clear the fields
+                clearFields();
+
+                // Switch to the login panel
+                cardLayout.show(cardPanel, "login");
+            } else {
+                // Registration failed
+                JOptionPane.showMessageDialog(null, response.getMessage());
+            }
         });
 
         panel.add(cardPanel);
@@ -201,5 +218,34 @@ public class LoginPanel extends JPanel {
         loginPanelPassword.setText("");
         registerPanelLogin.setText("");
         registerPanelPassword.setText("");
+    }
+
+    private JButton createStyledButton(String text, int width, int height) {
+        JButton button = new JButton(text);
+        button.setPreferredSize(new Dimension(width, height));
+        button.setBackground(new Color(105, 105, 105)); // Darker gray color
+        button.setForeground(Color.WHITE);
+        button.setFont(new Font("Arial", Font.BOLD, 14));
+        button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
+
+        // Add subtle hover effect
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button.setBackground(new Color(80, 80, 80)); // Slightly darker gray on press
+            }
+        });
+
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button.setBackground(new Color(80, 80, 80).brighter()); // Lighter gray on hover
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button.setBackground(new Color(105, 105, 105)); // Restore the original dark gray color on exit
+            }
+        });
+
+        return button;
     }
 }
