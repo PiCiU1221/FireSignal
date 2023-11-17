@@ -277,6 +277,7 @@ export interface IDialogs {
     touchSwitchModeTouchDialog: IDialogContent | null;
     dockingModalityOverlay: IDialogContent | null;
     sessionLockedOverlay: IDialogContent | null;
+    sessionUnlockOverlay: IDialogContent | null;
     hiddenWindowsNotification: IDialogContent | null;
     popupBlockedNotification: IDialogContent | null;
 }

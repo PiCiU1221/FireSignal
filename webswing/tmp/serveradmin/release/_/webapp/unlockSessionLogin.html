@@ -29,8 +29,14 @@
 			securityToken: getParam('securityToken'),
 			realm: getParam('realm'),
 			adminConsoleLogin: true,
+			useWindowTop: false,
 			onReady: function(api) {
-				unlockSession();
+				var targetWindow = window.opener || window.top;
+				api.readUnlockToken().then(function(unlockToken){
+					targetWindow.postMessage({type:'webswing-unlock-token',value:unlockToken},baseUrl);
+				}).catch(function(e){
+					targetWindow.postMessage({type:'webswing-unlock-token',value:'"unlockTokenError:'+ e+'"'},baseUrl);
+				})
 			},
 			customization: function(injector) {
 				injector.services.webswing.configureFetchHeaders = function(headers){
@@ -40,24 +46,6 @@
 			}
 		}
 	}
-
-	function unlockSession() {
-    	var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-                var data;
-                if (xmlhttp.status == 200) {
-                	data = xmlhttp.responseText;
-					window.opener.postMessage(data,baseUrl);
-                } else {
-					window.opener.postMessage('"unlockTokenError:'+ xmlhttp.status+'"',baseUrl);
-                }
-            }
-        };
-        xmlhttp.open("POST", baseUrl + "rest/unlock", true);
-        xmlhttp.withCredentials = true;
-        xmlhttp.send();
-    }
 
 	function getBaseUrl() {
 		var baseUrl = document.location.origin + document.location.pathname;

@@ -1,14 +1,23 @@
-# Use a base image with a Java runtime
-FROM openjdk:11-jre-slim
+FROM openjdk:17-jdk-slim
 
-# Set the working directory
-WORKDIR /app
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y xvfb libxext6 libxi6 libxtst6 libxrender1 libpangoft2-1.0-0
 
-# Copy the WebSwing files into the container
-COPY . .
+# Set environment variables
+ENV DISPLAY=:99
 
 # Expose the port used by WebSwing
 EXPOSE 8080
 
-# Start WebSwing
-CMD ["java", "-jar", "server/webswing-jetty-launcher.jar", "-j", "jetty.properties", "-serveradmin", "-pfa", "admin/webswing-admin.properties", "-adminctx", "/admin", "-aw", "admin/webswing-admin-server.war"]
+# Copy the WebSwing files into the container
+COPY . .
+
+# Copy the entry point script
+COPY entrypoint.sh /entrypoint.sh
+
+# Give execute permissions to the entry point script
+RUN chmod +x /entrypoint.sh
+
+# Set the entry point for the container
+ENTRYPOINT ["/entrypoint.sh"]

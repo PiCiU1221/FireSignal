@@ -1,403 +1,89 @@
-2023-10-31 10:44:55,292 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-10-31 10:44:55,719 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-10-31 10:44:55,720 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-10-31 10:44:55,722 INFO  [main] (AdminInitializer.java:39) Auto-scaling config file not found. Ignoring. Make sure to provide auto-scaling config file if you want to use auto-scaling service in Webswing Cluster.
-2023-10-31 10:44:55,722 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-10-31 10:44:56,489 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-10-31 10:44:56,499 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-10-31 10:44:56,510 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-10-31 10:44:56,512 WARN  [main] (AutoScalingConfigurationProvider.java:197) Configuration file for auto-scaling does not exist, creating empty configuration in [C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\webswing-autoscaling.config]!
-2023-10-31 10:44:56,562 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-10-31 10:44:56,633 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-10-31 10:44:56,639 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-10-31 10:44:57,978 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-10-31 10:44:58,435 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-10-31 10:44:58,521 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-10-31 10:44:58,522 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-10-31 10:44:58,522 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-10-31 10:50:01,899 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-10-31 10:50:02,404 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-10-31 10:50:02,405 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-10-31 10:50:02,406 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-10-31 10:50:02,407 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-10-31 10:50:03,269 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-10-31 10:50:03,277 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-10-31 10:50:03,285 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-10-31 10:50:03,342 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-10-31 10:50:03,408 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-10-31 10:50:03,414 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-10-31 10:50:04,641 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-10-31 10:50:04,954 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-10-31 10:50:05,025 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-10-31 10:50:05,026 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-10-31 10:50:05,027 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 17:33:09,857 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 17:33:10,127 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 17:33:10,128 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 17:33:10,129 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 17:33:10,129 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 17:33:10,667 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 17:33:10,673 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 17:33:10,678 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 17:33:10,710 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 17:33:10,745 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 17:33:10,748 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 17:33:10,880 ERROR [Admin Websocket Service Timer] (AdminWebSocketServiceImpl.java:333) Failed to connect websocket to server [ws://localhost:8080]! Failed to connect to websocket
-2023-11-01 17:33:10,882 INFO  [Admin Websocket Service Timer] (AdminWebSocketServiceImpl.java:399) Websocket closed to server id [null], url [ws://localhost:8080]. Reconnect in 5000ms.
-2023-11-01 17:33:11,578 INFO  [main] (AdminWebSocketServiceImpl.java:442) Stopping service. Closing websocket connections.
-2023-11-01 17:33:11,579 INFO  [main] (AdminWebSocketConnectionImpl.java:146) Disconnecting websocket to server [ws://localhost:8080].
-2023-11-01 17:33:14,581 INFO  [main] (AdminServlet.java:145) Webswing Admin Server Stopped.
-2023-11-01 17:33:43,725 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 17:33:43,986 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 17:33:43,987 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 17:33:43,988 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 17:33:43,988 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 17:33:44,496 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 17:33:44,503 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 17:33:44,508 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 17:33:44,550 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 17:33:44,604 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 17:33:44,609 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 17:33:45,829 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 17:33:46,201 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 17:33:46,283 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 17:33:46,284 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 17:33:46,285 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 17:34:08,308 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 17:52:13,603 INFO  [ tyrus-jdk-client-35] (AdminGlobalUrlHandler.java:182) Removing application /firesignal
-2023-11-01 17:52:25,617 INFO  [ tyrus-jdk-client-36] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 17:57:41,669 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 17:57:41,905 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 17:57:41,905 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 17:57:41,906 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 17:57:41,906 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 17:57:42,353 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 17:57:42,358 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 17:57:42,364 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 17:57:42,392 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 17:57:42,424 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 17:57:42,427 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 17:57:43,099 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 17:57:43,599 INFO  [ tyrus-jdk-client-1] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 17:57:43,679 INFO  [ tyrus-jdk-client-1] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 17:57:43,680 INFO  [ tyrus-jdk-client-1] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 17:57:43,680 INFO  [ tyrus-jdk-client-1] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 17:57:43,681 INFO  [ tyrus-jdk-client-1] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 18:32:08,035 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 18:32:08,533 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 18:32:08,534 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 18:32:08,536 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 18:32:08,536 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 18:32:09,408 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 18:32:09,419 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 18:32:09,428 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 18:32:09,492 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 18:32:09,559 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 18:32:09,566 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 18:32:11,348 INFO  [ tyrus-jdk-client-2] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 18:32:11,807 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 18:32:11,892 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 18:32:11,893 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 18:32:11,893 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 18:32:11,893 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 20:48:20,684 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 20:48:20,926 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 20:48:20,927 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 20:48:20,928 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 20:48:20,928 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 20:48:21,420 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 20:48:21,426 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 20:48:21,432 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 20:48:21,465 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 20:48:21,502 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 20:48:21,505 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 20:48:22,218 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 20:48:22,656 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 20:48:22,731 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 20:48:22,731 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 20:48:22,732 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 20:48:22,732 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 20:50:16,913 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 20:50:17,178 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 20:50:17,178 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 20:50:17,179 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 20:50:17,180 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 20:50:17,693 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 20:50:17,700 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 20:50:17,705 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 20:50:17,737 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 20:50:17,774 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 20:50:17,777 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 20:50:18,487 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 20:50:18,934 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 20:50:19,044 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 20:50:19,045 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 20:50:19,052 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 20:50:19,086 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 20:57:30,589 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 20:57:30,827 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 20:57:30,828 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 20:57:30,829 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 20:57:30,829 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 20:57:31,274 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 20:57:31,280 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 20:57:31,284 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 20:57:31,310 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 20:57:31,339 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 20:57:31,341 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 20:57:32,040 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 20:57:32,493 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 20:57:32,556 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 20:57:32,557 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 20:57:32,557 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 20:57:32,558 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 21:00:04,969 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 21:00:05,206 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 21:00:05,207 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 21:00:05,207 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 21:00:05,208 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 21:00:05,690 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 21:00:05,695 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 21:00:05,700 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 21:00:05,734 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 21:00:05,768 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 21:00:05,772 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 21:00:06,951 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 21:00:07,537 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 21:00:07,639 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 21:00:07,655 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 21:00:07,656 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 21:00:07,657 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 21:56:06,967 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 21:56:07,226 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 21:56:07,227 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 21:56:07,228 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 21:56:07,228 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 21:56:07,787 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 21:56:07,793 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 21:56:07,798 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 21:56:07,830 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 21:56:07,868 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 21:56:07,872 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 21:56:09,067 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 21:56:09,502 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 21:56:09,589 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 21:56:09,590 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 21:56:09,591 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 21:56:09,591 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 23:00:21,607 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 23:00:21,871 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 23:00:21,871 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 23:00:21,872 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 23:00:21,873 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 23:00:22,368 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 23:00:22,376 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 23:00:22,382 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 23:00:22,413 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 23:00:22,448 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 23:00:22,451 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 23:00:23,661 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 23:00:23,973 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 23:00:24,040 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 23:00:24,041 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 23:00:24,041 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 23:00:24,041 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 23:35:14,871 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 23:35:15,158 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 23:35:15,159 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 23:35:15,159 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 23:35:15,160 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 23:35:15,765 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 23:35:15,771 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 23:35:15,779 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 23:35:15,812 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 23:35:15,850 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 23:35:15,853 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 23:35:17,093 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 23:35:17,415 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 23:35:17,460 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 23:35:17,461 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 23:35:17,461 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 23:35:17,461 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-01 23:45:40,515 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-01 23:45:40,741 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-01 23:45:40,742 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-01 23:45:40,743 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-01 23:45:40,743 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-01 23:45:41,136 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-01 23:45:41,141 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-01 23:45:41,145 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-01 23:45:41,172 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-01 23:45:41,200 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-01 23:45:41,202 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-01 23:45:41,846 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-01 23:45:42,314 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-01 23:45:42,370 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-01 23:45:42,370 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-01 23:45:42,370 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-01 23:45:42,370 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-02 10:43:45,548 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-02 10:43:45,792 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-02 10:43:45,792 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-02 10:43:45,793 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-02 10:43:45,794 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-02 10:43:46,241 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-02 10:43:46,248 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-02 10:43:46,253 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-02 10:43:46,284 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-02 10:43:46,318 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-02 10:43:46,322 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-02 10:43:47,542 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-02 10:43:47,896 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-02 10:43:47,996 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-02 10:43:47,997 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-02 10:43:47,997 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-02 10:43:47,998 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-02 11:32:02,797 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-02 11:32:03,129 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-02 11:32:03,130 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-02 11:32:03,131 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-02 11:32:03,132 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-02 11:32:03,684 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-02 11:32:03,694 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-02 11:32:03,700 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-02 11:32:03,748 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-02 11:32:03,798 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-02 11:32:03,806 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-02 11:32:05,019 INFO  [ tyrus-jdk-client-2] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-02 11:32:05,347 INFO  [ tyrus-jdk-client-3] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-02 11:32:05,415 INFO  [ tyrus-jdk-client-3] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-02 11:32:05,416 INFO  [ tyrus-jdk-client-3] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-02 11:32:05,416 INFO  [ tyrus-jdk-client-3] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-02 11:32:05,416 INFO  [ tyrus-jdk-client-3] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-02 11:34:46,134 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-02 11:34:46,359 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-02 11:34:46,360 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-02 11:34:46,361 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-02 11:34:46,361 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-02 11:34:46,755 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-02 11:34:46,761 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-02 11:34:46,766 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-02 11:34:46,791 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-02 11:34:46,819 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-02 11:34:46,822 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-02 11:34:47,455 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-02 11:34:47,944 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-02 11:34:48,016 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-02 11:34:48,017 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-02 11:34:48,017 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-02 11:34:48,017 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-02 11:46:18,430 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-02 11:46:18,715 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-02 11:46:18,715 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-02 11:46:18,716 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-02 11:46:18,716 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-02 11:46:19,173 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-02 11:46:19,183 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-02 11:46:19,191 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-02 11:46:19,230 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-02 11:46:19,271 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-02 11:46:19,275 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-02 11:46:20,484 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-02 11:46:20,798 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-02 11:46:20,865 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-02 11:46:20,865 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-02 11:46:20,865 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-02 11:46:20,866 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-16 17:11:21,660 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-16 17:11:21,888 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-16 17:11:21,888 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-16 17:11:21,889 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-16 17:11:21,890 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-16 17:11:22,316 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-16 17:11:22,321 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-16 17:11:22,327 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-16 17:11:22,355 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-16 17:11:22,384 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-16 17:11:22,388 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-16 17:11:23,034 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-16 17:11:23,504 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
-2023-11-16 17:11:23,575 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
-2023-11-16 17:11:23,575 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
-2023-11-16 17:11:23,576 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
-2023-11-16 17:11:23,576 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-16 17:12:43,238 INFO  [ tyrus-jdk-client-5] (AdminGlobalUrlHandler.java:182) Removing application /webswing-demo
-2023-11-16 17:12:47,662 INFO  [ tyrus-jdk-client-5] (AdminGlobalUrlHandler.java:182) Removing application /webswing-demo-applet
-2023-11-16 17:12:49,746 INFO  [ tyrus-jdk-client-6] (AdminGlobalUrlHandler.java:182) Removing application /migration-examples
-2023-11-16 17:12:51,694 INFO  [ tyrus-jdk-client-5] (AdminGlobalUrlHandler.java:182) Removing application /netbeans
-2023-11-16 17:20:00,792 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-16 17:20:01,042 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-16 17:20:01,043 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-16 17:20:01,044 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-16 17:20:01,044 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-16 17:20:01,470 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-16 17:20:01,476 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-16 17:20:01,481 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-16 17:20:01,508 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-16 17:20:01,539 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-16 17:20:01,542 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-16 17:20:02,199 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-16 17:20:02,641 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-16 17:20:38,940 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-16 17:20:39,163 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-16 17:20:39,164 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-16 17:20:39,165 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-16 17:20:39,165 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-16 17:20:39,559 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-16 17:20:39,565 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-16 17:20:39,570 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-16 17:20:39,597 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-16 17:20:39,625 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-16 17:20:39,627 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-16 17:20:40,282 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-16 17:20:40,722 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-16 17:55:03,450 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-16 17:55:03,688 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-16 17:55:03,688 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-16 17:55:03,689 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-16 17:55:03,690 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-16 17:55:04,094 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-16 17:55:04,103 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-16 17:55:04,109 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-16 17:55:04,141 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-16 17:55:04,170 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-16 17:55:04,173 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-16 17:55:04,828 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-16 17:55:05,269 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-17 13:14:10,032 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-17 13:14:10,261 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-17 13:14:10,261 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-17 13:14:10,262 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-17 13:14:10,263 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-17 13:14:10,683 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-17 13:14:10,690 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-17 13:14:10,694 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-17 13:14:10,720 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-17 13:14:10,751 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-17 13:14:10,754 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-17 13:14:37,251 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-17 13:14:37,494 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-17 13:14:37,494 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-17 13:14:37,495 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-17 13:14:37,495 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-17 13:14:37,910 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-17 13:14:37,916 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-17 13:14:37,921 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-17 13:14:37,949 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-17 13:14:37,976 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-17 13:14:37,979 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-17 13:14:38,626 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-17 13:14:39,049 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
-2023-11-17 13:15:59,467 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
-2023-11-17 13:15:59,691 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2\tmp\serveradmin\release
-2023-11-17 13:15:59,692 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Desktop\Programowanie\Java\Webswing\webswing-examples-eval-23.2
-2023-11-17 13:15:59,692 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/webswing-autoscaling.config
-2023-11-17 13:15:59,693 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Desktop/Programowanie/Java/Webswing/webswing-examples-eval-23.2/admin/webswing-admin.properties
-2023-11-17 13:16:00,086 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
-2023-11-17 13:16:00,092 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
-2023-11-17 13:16:00,096 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
-2023-11-17 13:16:00,123 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
-2023-11-17 13:16:00,153 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
-2023-11-17 13:16:00,155 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
-2023-11-17 13:16:00,802 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
-2023-11-17 13:16:01,237 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
+2023-11-17 15:33:53,765 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
+2023-11-17 15:33:54,003 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1\tmp\serveradmin\release
+2023-11-17 15:33:54,005 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1
+2023-11-17 15:33:54,006 INFO  [main] (AdminInitializer.java:39) Auto-scaling config file not found. Ignoring. Make sure to provide auto-scaling config file if you want to use auto-scaling service in Webswing Cluster.
+2023-11-17 15:33:54,006 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Downloads/webswing-examples-eval-23.2.1-distribution/webswing-examples-eval-23.2.1/admin/webswing-admin.properties
+2023-11-17 15:33:54,410 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
+2023-11-17 15:33:54,417 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
+2023-11-17 15:33:54,421 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
+2023-11-17 15:33:54,423 WARN  [main] (AutoScalingConfigurationProvider.java:197) Configuration file for auto-scaling does not exist, creating empty configuration in [C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1\webswing-autoscaling.config]!
+2023-11-17 15:33:54,450 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
+2023-11-17 15:33:54,486 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
+2023-11-17 15:33:54,489 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
+2023-11-17 15:33:54,567 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
+2023-11-17 15:33:54,659 ERROR [ tyrus-jdk-client-2] (AdminWebSocketConnectionImpl.java:123) Websocket closed to server [ws://localhost:8080], close code [1003], reason [An admin console is already connected!]!
+2023-11-17 15:33:54,660 INFO  [ tyrus-jdk-client-2] (AdminWebSocketServiceImpl.java:399) Websocket closed to server id [null], url [ws://localhost:8080]. Reconnect in 5000ms.
+2023-11-17 15:33:55,320 INFO  [main] (AdminWebSocketServiceImpl.java:442) Stopping service. Closing websocket connections.
+2023-11-17 15:33:55,320 INFO  [main] (AdminWebSocketConnectionImpl.java:146) Disconnecting websocket to server [ws://localhost:8080].
+2023-11-17 15:33:58,332 INFO  [main] (AdminServlet.java:145) Webswing Admin Server Stopped.
+2023-11-17 15:35:22,412 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
+2023-11-17 15:35:22,660 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1\tmp\serveradmin\release
+2023-11-17 15:35:22,660 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1
+2023-11-17 15:35:22,661 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Downloads/webswing-examples-eval-23.2.1-distribution/webswing-examples-eval-23.2.1/webswing-autoscaling.config
+2023-11-17 15:35:22,661 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Downloads/webswing-examples-eval-23.2.1-distribution/webswing-examples-eval-23.2.1/admin/webswing-admin.properties
+2023-11-17 15:35:23,071 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
+2023-11-17 15:35:23,077 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
+2023-11-17 15:35:23,082 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
+2023-11-17 15:35:23,109 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
+2023-11-17 15:35:23,141 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
+2023-11-17 15:35:23,144 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
+2023-11-17 15:35:23,220 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
+2023-11-17 15:35:23,310 ERROR [ tyrus-jdk-client-2] (AdminWebSocketConnectionImpl.java:123) Websocket closed to server [ws://localhost:8080], close code [1003], reason [An admin console is already connected!]!
+2023-11-17 15:35:23,311 INFO  [ tyrus-jdk-client-2] (AdminWebSocketServiceImpl.java:399) Websocket closed to server id [null], url [ws://localhost:8080]. Reconnect in 5000ms.
+2023-11-17 15:35:23,854 INFO  [main] (AdminWebSocketServiceImpl.java:442) Stopping service. Closing websocket connections.
+2023-11-17 15:35:23,855 INFO  [main] (AdminWebSocketConnectionImpl.java:146) Disconnecting websocket to server [ws://localhost:8080].
+2023-11-17 15:35:26,870 INFO  [main] (AdminServlet.java:145) Webswing Admin Server Stopped.
+2023-11-17 15:35:45,728 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
+2023-11-17 15:35:45,954 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1\tmp\serveradmin\release
+2023-11-17 15:35:45,955 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1
+2023-11-17 15:35:45,955 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Downloads/webswing-examples-eval-23.2.1-distribution/webswing-examples-eval-23.2.1/webswing-autoscaling.config
+2023-11-17 15:35:45,956 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Downloads/webswing-examples-eval-23.2.1-distribution/webswing-examples-eval-23.2.1/admin/webswing-admin.properties
+2023-11-17 15:35:46,357 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
+2023-11-17 15:35:46,364 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
+2023-11-17 15:35:46,369 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
+2023-11-17 15:35:46,396 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
+2023-11-17 15:35:46,425 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
+2023-11-17 15:35:46,429 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
+2023-11-17 15:35:47,083 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
+2023-11-17 15:35:47,563 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
+2023-11-17 15:35:47,620 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
+2023-11-17 15:35:47,620 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
+2023-11-17 15:35:47,621 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
+2023-11-17 17:58:30,065 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
+2023-11-17 17:58:30,297 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1\tmp\serveradmin\release
+2023-11-17 17:58:30,297 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1
+2023-11-17 17:58:30,298 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Downloads/webswing-examples-eval-23.2.1-distribution/webswing-examples-eval-23.2.1/webswing-autoscaling.config
+2023-11-17 17:58:30,298 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Downloads/webswing-examples-eval-23.2.1-distribution/webswing-examples-eval-23.2.1/admin/webswing-admin.properties
+2023-11-17 17:58:30,719 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
+2023-11-17 17:58:30,725 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
+2023-11-17 17:58:30,730 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
+2023-11-17 17:58:30,758 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
+2023-11-17 17:58:30,786 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
+2023-11-17 17:58:30,789 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
+2023-11-17 17:58:31,430 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
+2023-11-17 17:58:31,924 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
+2023-11-17 17:58:31,981 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
+2023-11-17 17:58:31,982 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
+2023-11-17 17:58:31,982 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
+2023-11-17 17:58:43,640 INFO  [ tyrus-jdk-client-3] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
+2023-11-17 18:09:50,343 INFO  [main] (AdminServlet.java:52) Initializing Webswing Admin Server...
+2023-11-17 18:09:50,594 INFO  [main] (AdminInitializer.java:20) Using Temp folder: C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1\tmp\serveradmin\release
+2023-11-17 18:09:50,594 INFO  [main] (AdminInitializer.java:24) Using Root folder: C:\Users\piotr\Downloads\webswing-examples-eval-23.2.1-distribution\webswing-examples-eval-23.2.1
+2023-11-17 18:09:50,595 INFO  [main] (AdminInitializer.java:35) Using Auto-scaling config file: file:/C:/Users/piotr/Downloads/webswing-examples-eval-23.2.1-distribution/webswing-examples-eval-23.2.1/webswing-autoscaling.config
+2023-11-17 18:09:50,596 INFO  [main] (AdminInitializer.java:65) Using Properties file: file:/C:/Users/piotr/Downloads/webswing-examples-eval-23.2.1-distribution/webswing-examples-eval-23.2.1/admin/webswing-admin.properties
+2023-11-17 18:09:51,042 INFO  [main] (WebSocketUrlLoaderServiceImpl.java:129) Websocket URLs reloaded.
+2023-11-17 18:09:51,049 WARN  [main] (AdminGlobalUrlHandler.java:70) Failed to load customize dir [customize/]
+2023-11-17 18:09:51,054 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingConfigurationServiceImpl
+2023-11-17 18:09:51,086 INFO  [main] (StartupServiceImpl.java:29) Starting service AutoScalingServiceImpl
+2023-11-17 18:09:51,119 INFO  [main] (StartupServiceImpl.java:29) Starting service AdminWebSocketServiceImpl
+2023-11-17 18:09:51,122 INFO  [Admin Websocket Service Timer] (AdminWebSocketConnectionImpl.java:136) Starting websocket connection to server [ws://localhost:8080].
+2023-11-17 18:09:52,276 INFO  [ tyrus-jdk-client-1] (AdminWebSocketConnectionImpl.java:74) Websocket opened to server [ws://localhost:8080]!
+2023-11-17 18:09:52,535 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo
+2023-11-17 18:09:52,611 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /webswing-demo-applet
+2023-11-17 18:09:52,611 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /migration-examples
+2023-11-17 18:09:52,611 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /netbeans
+2023-11-17 18:09:52,612 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:163) Installing application /firesignal
+2023-11-17 18:10:02,918 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:182) Removing application /webswing-demo
+2023-11-17 18:10:04,972 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:182) Removing application /webswing-demo-applet
+2023-11-17 18:10:06,746 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:182) Removing application /migration-examples
+2023-11-17 18:10:08,764 INFO  [ tyrus-jdk-client-2] (AdminGlobalUrlHandler.java:182) Removing application /netbeans

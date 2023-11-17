@@ -5,10 +5,10 @@ Built-By: root
 Build-Jdk: 11.0.16
 Ignore-Scanning-Packages: com,org,net
 branch: master
-buildTime: 2023-10-10T14:15:19+0000
-commitId: 0370e04e55f7b1771f1d39c1e845da88cf78859f
-commitTime: 2023-10-10T13:35:46+0000
-describe: 23.2
+buildTime: 2023-11-09T00:00:24+0000
+commitId: 0caf988f06a24d27c0528cf9d121d2f33790edaf
+commitTime: 2023-11-08T23:32:29+0000
+describe: 23.2.1
 remoteOriginUrl: https://bitbucket.org/Webswing/webswing-home.git
-version: 23.2
+version: 23.2.1
 
