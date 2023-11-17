@@ -18,7 +18,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://piciu1221.github.io" ,"http://localhost:3000")
+                .allowedOrigins("https://piciu1221.github.io" ,"http://localhost:3000", "https://firesignaldesktopapp.onrender.com")
                 //.allowedOrigins("https://piciu1221.github.io")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH")
                 .allowCredentials(true);
