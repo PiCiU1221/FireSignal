@@ -1,7 +1,10 @@
 package com.piciu1221.firesignal.service;
 
 import com.piciu1221.firesignal.model.FireDepartment;
+import com.piciu1221.firesignal.model.Firefighter;
 import com.piciu1221.firesignal.repository.FireDepartmentRepository;
+import com.piciu1221.firesignal.util.ApiResponse;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,11 +19,19 @@ import java.util.List;
  */
 @Service
 public class FireDepartmentService {
+
     private final FireDepartmentRepository fireDepartmentRepository;
+    private final FirefighterService firefighterService;
+    private final UserService userService;
 
     @Autowired
-    public FireDepartmentService(FireDepartmentRepository fireDepartmentRepository) {
+    public FireDepartmentService(
+            FireDepartmentRepository fireDepartmentRepository,
+            FirefighterService firefighterService,
+            UserService userService) {
         this.fireDepartmentRepository = fireDepartmentRepository;
+        this.firefighterService = firefighterService;
+        this.userService = userService;
     }
 
     /**
@@ -52,20 +63,24 @@ public class FireDepartmentService {
         return fireDepartmentPage.getContent();
     }
 
-    /**
-     * Creates a new fire department.
-     *
-     * @param fireDepartment The FireDepartment object representing the new fire department.
-     * @return The created FireDepartment object.
-     * @throws IllegalArgumentException if the department name is not unique.
-     */
-    public FireDepartment createFireDepartment(FireDepartment fireDepartment) {
-        // Check if the department name is unique
-        if (fireDepartmentRepository.existsByDepartmentName(fireDepartment.getDepartmentName())) {
-            throw new IllegalArgumentException("Department name must be unique");
-        }
+    @Transactional
+    public ApiResponse<String> createDepartmentAndChief(FireDepartment fireDepartment, Firefighter firefighter) {
+        try {
+            // Save the fire department
+            FireDepartment savedDepartment = fireDepartmentRepository.save(fireDepartment);
 
-        // Save the fire department using the repository
-        return fireDepartmentRepository.save(fireDepartment);
+            // Set the relationship between FireDepartment and Firefighter
+            firefighter.setFireDepartment(savedDepartment);
+
+            // Save the firefighter using the FirefighterService
+            firefighterService.createFirefighter(firefighter);
+
+            // Set user role to "COMMANDER"
+            userService.setUserRole(firefighter.getFirefighterUsername(), "COMMANDER");
+
+            return ApiResponse.success("Department and Chief created successfully");
+        } catch (Exception e) {
+            return ApiResponse.error("Error creating Department and Chief: " + e.getMessage());
+        }
     }
 }

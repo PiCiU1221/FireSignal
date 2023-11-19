@@ -37,4 +37,6 @@ public interface FirefighterRepository extends JpaRepository<Firefighter, Long> 
      */
     @Query("SELECT f.fireDepartment.departmentId FROM Firefighter f WHERE f.firefighterUsername = :username")
     Integer findDepartmentIdByUsername(String username);
+
+    boolean existsByFirefighterUsername(String firefighterUsername);
 }

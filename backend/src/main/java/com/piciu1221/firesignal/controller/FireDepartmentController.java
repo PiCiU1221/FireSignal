@@ -1,7 +1,10 @@
 package com.piciu1221.firesignal.controller;
 
+import com.piciu1221.firesignal.dto.FireDepartmentAddDTO;
+import com.piciu1221.firesignal.model.Firefighter;
 import com.piciu1221.firesignal.service.FireDepartmentService;
 import com.piciu1221.firesignal.model.FireDepartment;
+import com.piciu1221.firesignal.util.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,15 +49,25 @@ public class FireDepartmentController {
         return fireDepartmentService.getAllFireDepartments();
     }
 
-    /**
-     * Create a new fire department.
-     *
-     * @param fireDepartment The fire department to be created.
-     * @return ResponseEntity containing the created fire department and HTTP status.
-     */
-    @PostMapping
-    public ResponseEntity<FireDepartment> createFireDepartment(@RequestBody @Valid FireDepartment fireDepartment) {
-        FireDepartment createdFireDepartment = fireDepartmentService.createFireDepartment(fireDepartment);
-        return new ResponseEntity<>(createdFireDepartment, HttpStatus.CREATED);
+    @PostMapping("/add")
+    public ResponseEntity<ApiResponse<String>> createDepartmentAndChief(@RequestBody FireDepartmentAddDTO addDTO) {
+        try {
+            // Create FireDepartment and Firefighter entities from the DTO
+            FireDepartment fireDepartment = addDTO.createFireDepartmentEntity();
+            Firefighter firefighter = addDTO.createFirefighterEntity();
+
+            // Call the service method to create department and chief
+            ApiResponse<String> response = fireDepartmentService.createDepartmentAndChief(fireDepartment, firefighter);
+
+            // Determine HTTP status based on the success flag in the response
+            HttpStatus httpStatus = response.isSuccess() ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+
+            // Return ResponseEntity with the ApiResponse and appropriate HTTP status
+            return ResponseEntity.status(httpStatus).body(response);
+        } catch (Exception e) {
+            // Handle any unexpected exceptions and return an ApiResponse with an error message
+            ApiResponse<String> errorResponse = ApiResponse.error("Error processing request: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
     }
 }

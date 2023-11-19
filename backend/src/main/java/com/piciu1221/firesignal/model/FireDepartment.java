@@ -27,7 +27,7 @@ public class FireDepartment implements Serializable {
     @Column(name = "department_street", nullable = false, length = 255)
     private String departmentStreet;
 
-    @Column(name = "department_latitude", nullable = false, precision = 10, scale = 8)
+    @Column(name = "department_latitude", nullable = false, precision = 11, scale = 8)
     private double departmentLatitude;
 
     @Column(name = "department_longitude", nullable = false, precision = 11, scale = 8)

@@ -3,6 +3,8 @@ package com.piciu1221.firesignal.service;
 import com.piciu1221.firesignal.controller.UserController;
 import com.piciu1221.firesignal.dto.UserDTO;
 import com.piciu1221.firesignal.dto.UserRoleResponse;
+import com.piciu1221.firesignal.exceptions.UserNotFoundException;
+import com.piciu1221.firesignal.exceptions.UserRoleUpdateException;
 import com.piciu1221.firesignal.model.Firefighter;
 import com.piciu1221.firesignal.model.User;
 import com.piciu1221.firesignal.repository.FirefighterRepository;
@@ -130,6 +132,32 @@ public class UserService {
         } else {
             // Handle the case where the user is not found
             return new UserRoleResponse(null);
+        }
+    }
+
+    public void setUserRole(String username, String role) throws UserNotFoundException, UserRoleUpdateException {
+        try {
+            // Find the user by the provided username
+            User user = userRepository.findByUsername(username);
+
+            // Check if the user is found
+            if (user == null) {
+                // User not found, throw a UserNotFoundException
+                throw new UserNotFoundException("User '" + username + "' not found when setting role");
+            }
+
+            // Update the user's role
+            user.setRole(role);
+            userRepository.save(user);
+
+            // Log successful role update
+            logger.info("Role '{}' set successfully for user '{}'", role, username);
+        } catch (Exception e) {
+            // Catch any unexpected exceptions and log the error
+            logger.error("Failed to set role for user '{}'", username, e);
+
+            // Throw a UserRoleUpdateException with the original exception as the cause
+            throw new UserRoleUpdateException("Error setting role for user: " + username, e);
         }
     }
 

@@ -3,14 +3,10 @@ package com.piciu1221.firesignal.controller;
 import com.piciu1221.firesignal.dto.FirefighterDTO;
 import com.piciu1221.firesignal.dto.UserDTO;
 import com.piciu1221.firesignal.dto.UsernameDTO;
-import com.piciu1221.firesignal.exceptions.UserAlreadyExistException;
-import com.piciu1221.firesignal.model.User;
 import com.piciu1221.firesignal.service.SSEService;
 import com.piciu1221.firesignal.service.UserService;
 
 import com.piciu1221.firesignal.util.ApiResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

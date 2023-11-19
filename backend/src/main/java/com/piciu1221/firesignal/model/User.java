@@ -23,6 +23,6 @@ public class User implements Serializable {
     @Column(name = "password", nullable = false, length = 256)
     private String password;
 
-    @Column(name = "role", nullable = false, length = 255, columnDefinition = "varchar(255) default 'user'")
+    @Column(name = "role", nullable = false, length = 255, columnDefinition = "varchar(255) default 'USER'")
     private String role = "user";
 }
