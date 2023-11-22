@@ -1,4 +1,4 @@
-package com.piciu1221.firesignal.model;
+package com.piciu1221.firesignal.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

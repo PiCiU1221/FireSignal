@@ -1,9 +1,7 @@
-package com.piciu1221.firesignal.model;
+package com.piciu1221.firesignal.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
 
 import java.io.Serializable;
 

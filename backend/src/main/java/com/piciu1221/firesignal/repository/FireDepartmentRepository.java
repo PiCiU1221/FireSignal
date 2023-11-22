@@ -1,6 +1,6 @@
 package com.piciu1221.firesignal.repository;
 
-import com.piciu1221.firesignal.model.FireDepartment;
+import com.piciu1221.firesignal.entity.FireDepartment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

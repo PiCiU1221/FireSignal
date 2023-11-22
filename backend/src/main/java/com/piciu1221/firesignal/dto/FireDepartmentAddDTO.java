@@ -1,7 +1,7 @@
 package com.piciu1221.firesignal.dto;
 
-import com.piciu1221.firesignal.model.FireDepartment;
-import com.piciu1221.firesignal.model.Firefighter;
+import com.piciu1221.firesignal.entity.FireDepartment;
+import com.piciu1221.firesignal.entity.Firefighter;
 import lombok.Data;
 
 @Data
