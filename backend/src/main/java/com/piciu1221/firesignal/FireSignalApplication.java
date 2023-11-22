@@ -9,4 +9,5 @@ public class FireSignalApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FireSignalApplication.class, args);
 	}
+
 }

@@ -1,15 +1,16 @@
 package com.piciu1221.firesignal.controller;
 
 import com.piciu1221.firesignal.dto.FireDepartmentAddDTO;
-import com.piciu1221.firesignal.entity.Firefighter;
+import com.piciu1221.firesignal.model.Firefighter;
 import com.piciu1221.firesignal.service.FireDepartmentService;
-import com.piciu1221.firesignal.entity.FireDepartment;
+import com.piciu1221.firesignal.model.FireDepartment;
 import com.piciu1221.firesignal.util.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**

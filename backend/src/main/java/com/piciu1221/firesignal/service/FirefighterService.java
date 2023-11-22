@@ -1,6 +1,6 @@
 package com.piciu1221.firesignal.service;
 
-import com.piciu1221.firesignal.entity.Firefighter;
+import com.piciu1221.firesignal.model.Firefighter;
 import com.piciu1221.firesignal.repository.FirefighterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

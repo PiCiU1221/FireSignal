@@ -1,6 +1,6 @@
 package com.piciu1221.firesignal.security;
 
-import com.piciu1221.firesignal.entity.User;
+import com.piciu1221.firesignal.model.User;
 import com.piciu1221.firesignal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

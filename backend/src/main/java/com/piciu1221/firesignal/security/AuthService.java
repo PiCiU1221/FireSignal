@@ -1,7 +1,8 @@
 package com.piciu1221.firesignal.security;
 
+import com.piciu1221.firesignal.controller.UserController;
 import com.piciu1221.firesignal.dto.UserDTO;
-import com.piciu1221.firesignal.entity.User;
+import com.piciu1221.firesignal.model.User;
 import com.piciu1221.firesignal.repository.UserRepository;
 import com.piciu1221.firesignal.util.ApiResponse;
 import org.slf4j.Logger;
@@ -11,7 +12,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,21 +25,17 @@ public class AuthService {
 
     private final UserRepository userRepository;
 
-    private final PasswordEncoder passwordEncoder;
-
     @Autowired
     public AuthService(
             AuthenticationManager authenticationManager,
             CustomUserDetailsService customUserDetailsService,
             JwtUtils jwtUtils,
-            UserRepository userRepository,
-            PasswordEncoder passwordEncoder
+            UserRepository userRepository
     ) {
         this.authenticationManager = authenticationManager;
         this.customUserDetailsService = customUserDetailsService;
         this.jwtUtils = jwtUtils;
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     public ApiResponse<String> authenticate(UserDTO request) {
@@ -56,23 +52,14 @@ public class AuthService {
             final UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
 
             if (userDetails != null) {
-                // Check if the provided password matches the stored hashed password
-                if (passwordEncoder.matches(password, userDetails.getPassword())) {
-                    // Generate JWT token
-                    String jwtToken = jwtUtils.generateToken(userDetails);
+                // Generate JWT token
+                String jwtToken = jwtUtils.generateToken(userDetails);
 
-                    // Log authentication success
-                    logger.info("Authentication successful for user '{}'", username);
+                // Log authentication success
+                logger.info("Authentication successful for user '{}'", username);
 
-                    // Return success response
-                    return ApiResponse.success("Authentication successful", jwtToken);
-                } else {
-                    // Log authentication failure due to incorrect password
-                    logger.warn("Authentication failed for user '{}' due to incorrect password", username);
-
-                    // Return error response
-                    return ApiResponse.error("Incorrect password");
-                }
+                // Return success response
+                return ApiResponse.success("Authentication successful", jwtToken);
             } else {
                 // Log user details not available
                 logger.warn("User details not available after authentication for user '{}'", username);

@@ -1,8 +1,8 @@
 package com.piciu1221.firesignal.service;
 
 import com.piciu1221.firesignal.dto.ConsolidatedAlarmInfoDTO;
-import com.piciu1221.firesignal.entity.AlarmedFirefighter;
-import com.piciu1221.firesignal.entity.AlarmedFirefighterId;
+import com.piciu1221.firesignal.model.AlarmedFirefighter;
+import com.piciu1221.firesignal.model.AlarmedFirefighterId;
 import com.piciu1221.firesignal.repository.AlarmedFirefighterRepository;
 import com.piciu1221.firesignal.repository.FirefighterRepository;
 import jakarta.persistence.EntityNotFoundException;

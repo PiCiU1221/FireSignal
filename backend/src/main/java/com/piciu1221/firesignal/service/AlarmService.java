@@ -1,6 +1,6 @@
 package com.piciu1221.firesignal.service;
 
-import com.piciu1221.firesignal.entity.*;
+import com.piciu1221.firesignal.model.*;
 import com.piciu1221.firesignal.repository.AlarmRepository;
 import com.piciu1221.firesignal.repository.AlarmedFirefighterRepository;
 import com.piciu1221.firesignal.repository.FireDepartmentRepository;
