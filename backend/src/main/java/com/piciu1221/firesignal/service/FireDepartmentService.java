@@ -1,7 +1,7 @@
 package com.piciu1221.firesignal.service;
 
-import com.piciu1221.firesignal.model.FireDepartment;
-import com.piciu1221.firesignal.model.Firefighter;
+import com.piciu1221.firesignal.entity.FireDepartment;
+import com.piciu1221.firesignal.entity.Firefighter;
 import com.piciu1221.firesignal.repository.FireDepartmentRepository;
 import com.piciu1221.firesignal.util.ApiResponse;
 import jakarta.transaction.Transactional;

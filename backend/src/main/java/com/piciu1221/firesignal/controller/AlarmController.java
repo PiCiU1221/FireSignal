@@ -1,7 +1,7 @@
 package com.piciu1221.firesignal.controller;
 
 import com.piciu1221.firesignal.dto.AlarmDisplayRequestDTO;
-import com.piciu1221.firesignal.model.*;
+import com.piciu1221.firesignal.entity.*;
 import com.piciu1221.firesignal.repository.AlarmRepository;
 import com.piciu1221.firesignal.repository.AlarmedFirefighterRepository;
 import com.piciu1221.firesignal.repository.FirefighterRepository;

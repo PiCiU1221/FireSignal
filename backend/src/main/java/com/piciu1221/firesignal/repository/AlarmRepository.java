@@ -1,6 +1,6 @@
 package com.piciu1221.firesignal.repository;
 
-import com.piciu1221.firesignal.model.Alarm;
+import com.piciu1221.firesignal.entity.Alarm;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.domain.Pageable;
