@@ -1,6 +1,6 @@
 package com.piciu1221.firesignal.controller;
 
-import com.piciu1221.firesignal.dto.FirefighterDTO;
+import com.piciu1221.firesignal.dto.FirefighterNameDTO;
 import com.piciu1221.firesignal.dto.UserDTO;
 import com.piciu1221.firesignal.dto.UsernameDTO;
 import com.piciu1221.firesignal.service.SSEService;
@@ -48,13 +48,13 @@ public class UserController {
      * Endpoint for retrieving the firefighter name associated with a username.
      *
      * @param usernameDTO The request containing the username.
-     * @return ResponseEntity with the firefighter name in a FirefighterDTO.
+     * @return ResponseEntity with the firefighter name in a FirefighterNameDTO.
      */
     @PostMapping("/get-firefighter-name")
-    public ResponseEntity<FirefighterDTO> getFirefighterName(@RequestBody UsernameDTO usernameDTO) {
+    public ResponseEntity<FirefighterNameDTO> getFirefighterName(@RequestBody UsernameDTO usernameDTO) {
         String firefighterName = userService.getFirefighterName(usernameDTO.getUsername());
-        FirefighterDTO firefighterDTO = new FirefighterDTO(firefighterName);
-        return ResponseEntity.ok(firefighterDTO);
+        FirefighterNameDTO firefighterNameDTO = new FirefighterNameDTO(firefighterName);
+        return ResponseEntity.ok(firefighterNameDTO);
     }
 
     /**

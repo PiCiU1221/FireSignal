@@ -33,4 +33,9 @@ public class Firefighter implements Serializable {
 
     @Column(name = "firefighter_technical_rescue", nullable = false)
     private boolean firefighterTechnicalRescue;
+
+    // Had to do it manually, because lombok didn't work
+    public void setDepartmentId(FireDepartment fireDepartment) {
+        this.fireDepartment = fireDepartment;
+    }
 }

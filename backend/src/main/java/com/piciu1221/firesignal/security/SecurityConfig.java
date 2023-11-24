@@ -49,6 +49,7 @@ public class SecurityConfig {
                         // Define access based on user roles
                         .requestMatchers("/api/commander").hasRole("COMMANDER")
                         .requestMatchers("/api/admin").hasRole("ADMIN")
+                        .requestMatchers("/api/firefighters").hasRole("ADMIN")
 
                         // Require authentication for any other requests
                         .anyRequest().authenticated()
@@ -95,7 +96,6 @@ public class SecurityConfig {
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // Note: NoOpPasswordEncoder is used for simplicity
         return new BCryptPasswordEncoder();
     }
 }

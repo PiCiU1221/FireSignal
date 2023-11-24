@@ -1,8 +1,11 @@
 package com.piciu1221.firesignal.repository;
 
 import com.piciu1221.firesignal.entity.Firefighter;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -39,4 +42,9 @@ public interface FirefighterRepository extends JpaRepository<Firefighter, Long> 
     Integer findDepartmentIdByUsername(String username);
 
     boolean existsByFirefighterUsername(String firefighterUsername);
+
+    Page<Firefighter> findByFireDepartmentDepartmentId(Long departmentId, Pageable pageable);
+
+    @Query("SELECT f.fireDepartment.departmentId FROM Firefighter f WHERE f.firefighterUsername = :username")
+    Long findFireDepartmentIdByUsername(@Param("username") String username);
 }

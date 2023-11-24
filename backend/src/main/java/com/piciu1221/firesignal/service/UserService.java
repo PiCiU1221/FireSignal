@@ -14,6 +14,7 @@ import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -29,11 +30,13 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final FirefighterRepository firefighterRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository, FirefighterRepository firefighterRepository) {
+    public UserService(UserRepository userRepository, FirefighterRepository firefighterRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.firefighterRepository = firefighterRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public ApiResponse<String> processLogin(UserDTO userDTO) {
@@ -84,7 +87,7 @@ public class UserService {
             // Create a new User object with the provided username and password
             User newUser = new User();
             newUser.setUsername(username);
-            newUser.setPassword(password);
+            newUser.setPassword(passwordEncoder.encode(password));
 
             // Use Optional for a more nuanced handling of the repository result
             Optional<User> savedUser = Optional.of(userRepository.save(newUser));

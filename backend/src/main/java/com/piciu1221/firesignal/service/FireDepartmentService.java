@@ -73,12 +73,18 @@ public class FireDepartmentService {
             firefighter.setFireDepartment(savedDepartment);
 
             // Save the firefighter using the FirefighterService
-            firefighterService.createFirefighter(firefighter);
+            ApiResponse<String> addFirefighterResponse = firefighterService.addFirefighter(firefighter);
 
-            // Set user role to "COMMANDER"
-            userService.setUserRole(firefighter.getFirefighterUsername(), "COMMANDER");
+            // Check if adding the firefighter was successful
+            if (addFirefighterResponse.isSuccess()) {
+                // Set user role to "COMMANDER"
+                userService.setUserRole(firefighter.getFirefighterUsername(), "COMMANDER");
 
-            return ApiResponse.success("Department and Chief created successfully");
+                return ApiResponse.success("Department and Chief created successfully");
+            } else {
+                // Return an error response if adding the firefighter failed
+                return ApiResponse.error("Error creating Department and Chief: " + addFirefighterResponse.getMessage());
+            }
         } catch (Exception e) {
             return ApiResponse.error("Error creating Department and Chief: " + e.getMessage());
         }
