@@ -5,6 +5,10 @@ Firefighters belonging to the selected fire departments, upon logging into the d
 
 This system enables volunteer fire departments to respond much more quickly than relying on the fire chief to receive alarm information and then individually call or text each firefighter in the department, a process that takes way too long.
 
+The desktop app was integrated with WebSwing, allowing Swing to run in the browser. It is containerized with Docker and deployed on a server.
+
+Spring Boot is connected to a foreign database server, also containerized, and deployed on hosting. Both the web app and the desktop app utilize it for every operation.
+
 <br>
 
 ## Test Account Details
