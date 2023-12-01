@@ -31,14 +31,20 @@ Spring Boot is connected to a foreign database server, also containerized, and d
 
 ### Web App
 
+### Dispatch new alarm
+![dispatch](./screenshots/webApp_newAlarm.png)
+
+### Add new fire department
+![addFireDepartment](./screenshots/webApp_addFireDepartment.png)
+
 ### Login
 ![login](./screenshots/webApp_login.png)
 
-### Add fire department
-![addFireDepartment](./screenshots/webApp_addFireDepartment.png)
+### Add new firefighter
+![dispatch](./screenshots/webApp_addFirefighter.png)
 
-### Dispatch new alarm
-![dispatch](./screenshots/webApp_newAlarm.png)
+### Delete firefighter
+![dispatch](./screenshots/webApp_deleteFirefighter.png)
 
 ### Desktop app
 
