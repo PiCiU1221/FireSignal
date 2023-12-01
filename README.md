@@ -11,6 +11,15 @@ Spring Boot is connected to a foreign database server, also containerized, and d
 
 <br>
 
+## How does it work?
+
+1. The fire chief creates a new account.
+2. Admin creates a new fire department by giving it a name and location. Then, they connect the fire chief's username to that department and add their first and last names and attributes, like if they're a driver or commander.
+3. The fire chief can then log into the web app and browse all the alarms that were dispatched for the fire department. He can also add firefighters to his fire crew. He just needs to put in the firefighters' usernames and mention if they're drivers, commanders, etc.
+4. Firefighters can then log in to the desktop app and receive alarm calls.
+
+<br>
+
 ## Test Account Details
 
 - **Username:** admin
