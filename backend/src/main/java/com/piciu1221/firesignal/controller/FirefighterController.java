@@ -29,7 +29,7 @@ public class FirefighterController {
             ApiResponse<String> response = firefighterService.addFirefighter(addDTO);
 
             // Determine HTTP status based on the success flag in the response
-            HttpStatus httpStatus = response.isSuccess() ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+            HttpStatus httpStatus = response.isSuccess() ? HttpStatus.OK : HttpStatus.UNPROCESSABLE_ENTITY;
 
             // Return ResponseEntity with the ApiResponse and appropriate HTTP status
             return ResponseEntity.status(httpStatus).body(response);
@@ -63,6 +63,43 @@ public class FirefighterController {
         } catch (Exception e) {
             // Handle exceptions and return an appropriate response
             ApiResponse<Boolean> errorResponse = ApiResponse.error("Error checking department: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
+    }
+
+    @PostMapping("/add-with-username")
+    public ResponseEntity<ApiResponse<String>> addFirefighterWithUsername(@RequestBody FirefighterAddDTO addDTO,
+                                                                          @RequestParam String username) {
+        try {
+            // Call the service method to add a firefighter
+            ApiResponse<String> response = firefighterService.addFirefighterWithUsername(addDTO, username);
+
+            // Determine HTTP status based on the success flag in the response
+            HttpStatus httpStatus = response.isSuccess() ? HttpStatus.OK : HttpStatus.UNPROCESSABLE_ENTITY;
+
+            // Return ResponseEntity with the ApiResponse and appropriate HTTP status
+            return ResponseEntity.status(httpStatus).body(response);
+        } catch (Exception e) {
+            // Handle any unexpected exceptions and return an ApiResponse with an error message
+            ApiResponse<String> errorResponse = ApiResponse.error("Error processing request: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
+    }
+
+    @DeleteMapping("/{username}")
+    public ResponseEntity<ApiResponse<String>> deleteFirefighter(@PathVariable String username) {
+        try {
+            // Call the service method to delete a firefighter by username
+            ApiResponse<String> response = firefighterService.deleteFirefighterByUsername(username);
+
+            // Determine HTTP status based on the success flag in the response
+            HttpStatus httpStatus = response.isSuccess() ? HttpStatus.OK : HttpStatus.NOT_FOUND;
+
+            // Return ResponseEntity with the ApiResponse and appropriate HTTP status
+            return ResponseEntity.status(httpStatus).body(response);
+        } catch (Exception e) {
+            // Handle any unexpected exceptions and return an ApiResponse with an error message
+            ApiResponse<String> errorResponse = ApiResponse.error("Error processing request: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }

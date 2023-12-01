@@ -66,6 +66,11 @@ public class FireDepartmentService {
     @Transactional
     public ApiResponse<String> createDepartmentAndChief(FireDepartment fireDepartment, Firefighter firefighter) {
         try {
+            // Check if the username is unique
+            if (fireDepartmentRepository.existsByDepartmentName(fireDepartment.getDepartmentName())) {
+                throw new IllegalArgumentException("Fire Department with this name already exists");
+            }
+
             // Save the fire department
             FireDepartment savedDepartment = fireDepartmentRepository.save(fireDepartment);
 
@@ -83,10 +88,14 @@ public class FireDepartmentService {
                 return ApiResponse.success("Department and Chief created successfully");
             } else {
                 // Return an error response if adding the firefighter failed
-                return ApiResponse.error("Error creating Department and Chief: " + addFirefighterResponse.getMessage());
+                return ApiResponse.error(addFirefighterResponse.getMessage());
             }
         } catch (Exception e) {
-            return ApiResponse.error("Error creating Department and Chief: " + e.getMessage());
+            return ApiResponse.error(e.getMessage());
         }
+    }
+
+    public List<FireDepartment> getNearestFireDepartments(double latitude, double longitude) {
+        return fireDepartmentRepository.findNearestFireDepartments(latitude, longitude);
     }
 }

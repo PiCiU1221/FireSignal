@@ -18,6 +18,10 @@ public class FirefighterAddDTO {
     private boolean firefighterDriver;
     private boolean firefighterTechnicalRescue;
 
+    public FirefighterAddDTO() {
+
+    }
+
     public Firefighter createFirefighterEntity(FireDepartmentRepository fireDepartmentRepository) {
         Firefighter firefighter = new Firefighter();
 
@@ -25,6 +29,25 @@ public class FirefighterAddDTO {
         FireDepartment fireDepartment = fireDepartmentRepository.findById(departmentId).orElse(null);
 
         firefighter.setDepartmentId(fireDepartment);
+        firefighter.setFirefighterName(firefighterName);
+        firefighter.setFirefighterUsername(firefighterUsername);
+        firefighter.setFirefighterCommander(firefighterCommander);
+        firefighter.setFirefighterDriver(firefighterDriver);
+        firefighter.setFirefighterTechnicalRescue(firefighterTechnicalRescue);
+
+        return firefighter;
+    }
+
+    public Firefighter createFirefighterEntity(FireDepartmentRepository fireDepartmentRepository,
+                                               String username) {
+        Firefighter firefighter = new Firefighter();
+
+        // Retrieve FireDepartment from the database based on the username
+        FireDepartment fireDepartment = fireDepartmentRepository.findByFirefighterUsername(username);
+
+        // Set the retrieved FireDepartment to the Firefighter
+        firefighter.setFireDepartment(fireDepartment);
+
         firefighter.setFirefighterName(firefighterName);
         firefighter.setFirefighterUsername(firefighterUsername);
         firefighter.setFirefighterCommander(firefighterCommander);

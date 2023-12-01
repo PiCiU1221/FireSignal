@@ -59,14 +59,26 @@ public class FireDepartmentController {
             ApiResponse<String> response = fireDepartmentService.createDepartmentAndChief(fireDepartment, firefighter);
 
             // Determine HTTP status based on the success flag in the response
-            HttpStatus httpStatus = response.isSuccess() ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+            HttpStatus httpStatus = response.isSuccess() ? HttpStatus.OK : HttpStatus.NOT_FOUND;
 
             // Return ResponseEntity with the ApiResponse and appropriate HTTP status
             return ResponseEntity.status(httpStatus).body(response);
         } catch (Exception e) {
             // Handle any unexpected exceptions and return an ApiResponse with an error message
             ApiResponse<String> errorResponse = ApiResponse.error("Error processing request: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+        }
+    }
+
+    @GetMapping("/closest")
+    public ResponseEntity<List<FireDepartment>> getNearestFireDepartments(
+            @RequestParam double latitude,
+            @RequestParam double longitude) {
+        try {
+            List<FireDepartment> nearestFireDepartments = fireDepartmentService.getNearestFireDepartments(latitude, longitude);
+            return new ResponseEntity<>(nearestFireDepartments, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

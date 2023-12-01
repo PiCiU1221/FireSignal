@@ -3,6 +3,7 @@ package com.piciu1221.firesignal.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -16,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Configuration class for defining security settings in the application.
@@ -47,9 +49,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/user/register").permitAll()
 
                         // Define access based on user roles
-                        .requestMatchers("/api/commander").hasRole("COMMANDER")
-                        .requestMatchers("/api/admin").hasRole("ADMIN")
                         .requestMatchers("/api/firefighters").hasRole("ADMIN")
+                        .requestMatchers("/api/firefighters/add-with-username").hasRole("COMMANDER")
+                        .requestMatchers("/api/fire-departments/closest").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/commander/{username}").hasRole("COMMANDER")
 
                         // Require authentication for any other requests
                         .anyRequest().authenticated()

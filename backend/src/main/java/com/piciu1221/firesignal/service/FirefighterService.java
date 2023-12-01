@@ -43,6 +43,15 @@ public class FirefighterService {
     }
 
     @Transactional
+    public ApiResponse<String> addFirefighterWithUsername(FirefighterAddDTO addDTO, String username) {
+        // Convert DTO to Firefighter entity
+        Firefighter firefighter = addDTO.createFirefighterEntity(fireDepartmentRepository, username);
+
+        // Call the original addFirefighter method with the entity
+        return addFirefighter(firefighter);
+    }
+
+    @Transactional
     public ApiResponse<String> addFirefighter(Firefighter firefighter) {
         try {
             // Check if the username is unique
@@ -66,7 +75,7 @@ public class FirefighterService {
 
     public List<Firefighter> getFirefightersByPage(int page) {
         // Define the number of items per page
-        int pageSize = 8;
+        int pageSize = 6;
 
         // Create a Pageable object for pagination with sorting by firefighterId in descending order
         Pageable pageable = PageRequest.of(page, pageSize, Sort.by("firefighterId").descending());
@@ -85,7 +94,7 @@ public class FirefighterService {
         // If the departmentId is not null, retrieve a page of firefighters from the repository for that department
         if (departmentId != null) {
             // Define the number of items per page
-            int pageSize = 8;
+            int pageSize = 6;
 
             // Create a Pageable object for pagination with sorting by firefighterId in descending order
             Pageable pageable = PageRequest.of(page, pageSize, Sort.by("firefighterId").descending());
@@ -115,5 +124,20 @@ public class FirefighterService {
 
         // Check if the firefighter has a fire department assigned
         return firefighter != null && firefighter.getFireDepartment() != null;
+    }
+
+    public ApiResponse<String> deleteFirefighterByUsername(String username) {
+        try {
+            Firefighter firefighter = firefighterRepository.findByFirefighterUsername(username);
+
+            if (firefighter != null) {
+                firefighterRepository.delete(firefighter);
+                return ApiResponse.success("Firefighter deleted successfully");
+            } else {
+                return ApiResponse.error("Firefighter with the specified username not found");
+            }
+        } catch (Exception e) {
+            return ApiResponse.error("Error deleting firefighter: " + e.getMessage());
+        }
     }
 }
