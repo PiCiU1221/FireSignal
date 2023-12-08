@@ -26,6 +26,12 @@ public class AuthController {
         this.authService = authService;
     }
 
+    /**
+     * Authenticate a user with the provided credentials.
+     *
+     * @param request The DTO containing user authentication information.
+     * @return ResponseEntity with ApiResponse containing the result message and HTTP status.
+     */
     @PostMapping("/authenticate")
     public ResponseEntity<ApiResponse<String>> authenticate(@RequestBody @Valid UserDTO request) {
         ApiResponse<String> response = authService.authenticate(request);

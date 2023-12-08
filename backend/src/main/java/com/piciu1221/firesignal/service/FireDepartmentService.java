@@ -34,11 +34,6 @@ public class FireDepartmentService {
         this.userService = userService;
     }
 
-    /**
-     * Retrieves a list of all fire departments.
-     *
-     * @return List of FireDepartment objects representing all fire departments.
-     */
     public List<FireDepartment> getAllFireDepartments() {
         return fireDepartmentRepository.findAll();
     }

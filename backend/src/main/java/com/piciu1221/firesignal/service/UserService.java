@@ -39,6 +39,12 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * Process user login based on the provided UserDTO.
+     *
+     * @param userDTO The UserDTO containing login credentials.
+     * @return ApiResponse with the login result message.
+     */
     public ApiResponse<String> processLogin(UserDTO userDTO) {
         String username = userDTO.getUsername();
         String password = userDTO.getPassword();
@@ -68,6 +74,12 @@ public class UserService {
         return new ApiResponse<>(true, "Login successful", "Additional data if needed");
     }
 
+    /**
+     * Register a new user based on the provided UserDTO.
+     *
+     * @param userDTO The UserDTO containing registration details.
+     * @return ApiResponse with the registration result message.
+     */
     public ApiResponse<String> registerUser(UserDTO userDTO) {
         try {
             // Extract username and password from the UserDTO
@@ -138,6 +150,14 @@ public class UserService {
         }
     }
 
+    /**
+     * Set the role of the user with the given username.
+     *
+     * @param username The username for which to set the user role.
+     * @param role     The new role to set.
+     * @throws UserNotFoundException     if the user with the given username is not found.
+     * @throws UserRoleUpdateException if there is an error updating the user role.
+     */
     public void setUserRole(String username, String role) throws UserNotFoundException, UserRoleUpdateException {
         try {
             // Find the user by the provided username
@@ -164,12 +184,6 @@ public class UserService {
         }
     }
 
-    /**
-     * Checks if a user with the given username exists.
-     *
-     * @param username The username to check for existence.
-     * @return true if the user exists, false otherwise.
-     */
     public boolean checkIfUserExists(String username) {
         return userRepository.existsByUsername(username);
     }

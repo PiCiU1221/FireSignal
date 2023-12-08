@@ -24,19 +24,26 @@ public interface FireDepartmentRepository extends JpaRepository<FireDepartment, 
             "WHERE af.alarm.alarmId = :alarmId")
     List<FireDepartment> findFireDepartmentsByAlarmId(int alarmId);
 
-    /**
-     * Check if a fire department with the given name exists in the database.
-     *
-     * @param departmentName The name of the fire department.
-     * @return True if a fire department with the given name exists, false otherwise.
-     */
     boolean existsByDepartmentName(String departmentName);
 
+    /**
+     * Find the fire department associated with a firefighter's username.
+     *
+     * @param username The username of the firefighter.
+     * @return The fire department associated with the given username.
+     */
     @Query(value = "SELECT fd.* FROM fire_departments fd " +
             "INNER JOIN firefighters f ON fd.department_id = f.department_id " +
             "WHERE f.firefighter_username = :username", nativeQuery = true)
     FireDepartment findByFirefighterUsername(@Param("username") String username);
 
+    /**
+     * Find the nearest fire departments based on latitude and longitude.
+     *
+     * @param latitude  The latitude for finding the nearest fire departments.
+     * @param longitude The longitude for finding the nearest fire departments.
+     * @return List of the nearest fire departments.
+     */
     @Query(value = "SELECT * FROM fire_departments " +
             "ORDER BY ST_Distance(ST_Point(department_longitude, department_latitude), ST_Point(:longitude, :latitude)) " +
             "LIMIT 3", nativeQuery = true)

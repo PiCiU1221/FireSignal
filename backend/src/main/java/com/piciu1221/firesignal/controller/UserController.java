@@ -28,6 +28,12 @@ public class UserController {
     @Autowired
     private SSEService sseService;
 
+    /**
+     * Process user login.
+     *
+     * @param userDTO The DTO containing user login information.
+     * @return ResponseEntity with ApiResponse containing the result message and HTTP status.
+     */
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<String>> login(@RequestBody @Valid UserDTO userDTO) {
         ApiResponse<String> response = userService.processLogin(userDTO);
@@ -36,6 +42,12 @@ public class UserController {
         return ResponseEntity.status(httpStatus).body(response);
     }
 
+    /**
+     * Register a new user.
+     *
+     * @param userDTO The DTO containing user registration information.
+     * @return ResponseEntity with ApiResponse containing the result message and HTTP status.
+     */
     @PostMapping("/register")
     public ResponseEntity<ApiResponse<String>> registerUser(@RequestBody @Valid UserDTO userDTO) {
         ApiResponse<String> response = userService.registerUser(userDTO);

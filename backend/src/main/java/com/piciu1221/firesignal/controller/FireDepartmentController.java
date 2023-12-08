@@ -48,6 +48,12 @@ public class FireDepartmentController {
         return fireDepartmentService.getAllFireDepartments();
     }
 
+    /**
+     * Create a new fire department and its chief.
+     *
+     * @param addDTO The DTO containing information for creating the department and chief.
+     * @return ResponseEntity with an ApiResponse containing the result message and HTTP status.
+     */
     @PostMapping("/add")
     public ResponseEntity<ApiResponse<String>> createDepartmentAndChief(@RequestBody FireDepartmentAddDTO addDTO) {
         try {
@@ -70,6 +76,13 @@ public class FireDepartmentController {
         }
     }
 
+    /**
+     * Get a list of the nearest fire departments based on latitude and longitude.
+     *
+     * @param latitude  The latitude for finding the nearest fire departments.
+     * @param longitude The longitude for finding the nearest fire departments.
+     * @return ResponseEntity containing the list of nearest fire departments and HTTP status.
+     */
     @GetMapping("/closest")
     public ResponseEntity<List<FireDepartment>> getNearestFireDepartments(
             @RequestParam double latitude,

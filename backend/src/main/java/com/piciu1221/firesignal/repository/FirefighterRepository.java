@@ -16,20 +16,8 @@ import java.util.List;
 @Repository
 public interface FirefighterRepository extends JpaRepository<Firefighter, Long> {
 
-    /**
-     * Retrieve a list of firefighters associated with the specified fire department IDs.
-     *
-     * @param departmentIds List of fire department IDs.
-     * @return List of firefighters associated with the specified fire department IDs.
-     */
     List<Firefighter> findByFireDepartment_DepartmentIdIn(List<Integer> departmentIds);
 
-    /**
-     * Retrieve a firefighter by their username.
-     *
-     * @param firefighterUsername The username of the firefighter.
-     * @return The firefighter with the specified username.
-     */
     Firefighter findByFirefighterUsername(String firefighterUsername);
 
     /**
@@ -45,6 +33,12 @@ public interface FirefighterRepository extends JpaRepository<Firefighter, Long> 
 
     Page<Firefighter> findByFireDepartmentDepartmentId(Long departmentId, Pageable pageable);
 
+    /**
+     * Find the department ID associated with a firefighter's username.
+     *
+     * @param username The username of the firefighter.
+     * @return The department ID associated with the given firefighter's username.
+     */
     @Query("SELECT f.fireDepartment.departmentId FROM Firefighter f WHERE f.firefighterUsername = :username")
     Long findFireDepartmentIdByUsername(@Param("username") String username);
 }

@@ -42,6 +42,12 @@ public class AuthService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * Authenticate a user with the provided credentials.
+     *
+     * @param request The DTO containing user authentication information.
+     * @return ApiResponse with the result message and JWT token if authentication is successful.
+     */
     public ApiResponse<String> authenticate(UserDTO request) {
         String username = request.getUsername();
         String password = request.getPassword();

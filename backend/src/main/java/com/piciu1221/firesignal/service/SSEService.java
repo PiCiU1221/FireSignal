@@ -36,21 +36,10 @@ public class SSEService {
         });
     }
 
-    /**
-     * Adds a FluxSink for a user to the userSinkMap.
-     *
-     * @param username The username of the user.
-     * @param sink The FluxSink associated with the user's SSE connection.
-     */
     public void addUserSink(String username, FluxSink<String> sink) {
         userSinkMap.put(username, sink);
     }
 
-    /**
-     * Removes a user's FluxSink from the userSinkMap.
-     *
-     * @param username The username of the user.
-     */
     public void removeUserSink(String username) {
         userSinkMap.remove(username);
     }
@@ -68,12 +57,6 @@ public class SSEService {
         }
     }
 
-    /**
-     * Checks if a user has an active SSE connection.
-     *
-     * @param username The username of the user.
-     * @return true if the user has an active SSE connection, false otherwise.
-     */
     public boolean isUserActive(String username) {
         return userSinkMap.containsKey(username);
     }

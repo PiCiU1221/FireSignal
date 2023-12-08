@@ -33,6 +33,12 @@ public class FirefighterService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Add a firefighter using the provided DTO.
+     *
+     * @param addDTO The DTO containing firefighter information.
+     * @return ApiResponse with the result message.
+     */
     @Transactional
     public ApiResponse<String> addFirefighter(FirefighterAddDTO addDTO) {
         // Convert DTO to Firefighter entity
@@ -42,6 +48,13 @@ public class FirefighterService {
         return addFirefighter(firefighter);
     }
 
+    /**
+     * Add a firefighter with a specified username using the provided DTO.
+     *
+     * @param addDTO   The DTO containing firefighter information.
+     * @param username The username associated with the firefighter.
+     * @return ApiResponse with the result message.
+     */
     @Transactional
     public ApiResponse<String> addFirefighterWithUsername(FirefighterAddDTO addDTO, String username) {
         // Convert DTO to Firefighter entity
@@ -51,6 +64,12 @@ public class FirefighterService {
         return addFirefighter(firefighter);
     }
 
+    /**
+     * Add a firefighter using the provided entity.
+     *
+     * @param firefighter The firefighter entity to be added.
+     * @return ApiResponse with the result message.
+     */
     @Transactional
     public ApiResponse<String> addFirefighter(Firefighter firefighter) {
         try {
@@ -73,6 +92,12 @@ public class FirefighterService {
         }
     }
 
+    /**
+     * Get a list of firefighters with pagination.
+     *
+     * @param page The page number for pagination (default is 0).
+     * @return List of firefighters for the specified page.
+     */
     public List<Firefighter> getFirefightersByPage(int page) {
         // Define the number of items per page
         int pageSize = 6;
@@ -87,6 +112,13 @@ public class FirefighterService {
         return firefighterPage.getContent();
     }
 
+    /**
+     * Get a list of firefighters based on the specified username and pagination.
+     *
+     * @param page     The page number for pagination (default is 0).
+     * @param username The username associated with the firefighters.
+     * @return List of firefighters for the specified username and page.
+     */
     public List<Firefighter> getFirefightersByUsernameAndPage(int page, String username) {
         // Get the fire department ID based on the username
         Long departmentId = firefighterRepository.findFireDepartmentIdByUsername(username);
@@ -110,6 +142,12 @@ public class FirefighterService {
         }
     }
 
+    /**
+     * Check if a firefighter with the given username has a department assigned.
+     *
+     * @param username The username of the firefighter.
+     * @return True if the firefighter has a department assigned, false otherwise.
+     */
     public boolean hasDepartmentAssigned(String username) {
         // Check if a firefighter with the given username exists
         boolean firefighterExists = firefighterRepository.existsByFirefighterUsername(username);
@@ -126,6 +164,12 @@ public class FirefighterService {
         return firefighter != null && firefighter.getFireDepartment() != null;
     }
 
+    /**
+     * Delete a firefighter with the specified username.
+     *
+     * @param username The username of the firefighter to be deleted.
+     * @return ApiResponse with the result message.
+     */
     public ApiResponse<String> deleteFirefighterByUsername(String username) {
         try {
             Firefighter firefighter = firefighterRepository.findByFirefighterUsername(username);
